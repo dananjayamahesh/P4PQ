@@ -1,0 +1,38 @@
+/*
+ * main.cpp
+ *
+ * created:- 
+ * author:-
+*/ 
+
+#ifndef HEADER_HTTPPARSER_H_
+#define HEADER_HTTPPARSER_H_
+
+#include <stdint.h>
+#include <cstring>
+#include "CommonDefs.h"
+#include "CommonFuncs.h"
+#include "CommonTypes.h"
+#include "NetworkPkts.h"
+#include "TSPrint.h"
+
+struct http_exact_data {
+	bool get_en;
+	bool host_en;
+	uint32_t get_byte_offset : 16, host_byte_offset : 16; 
+	uint32_t get_addr : 16, host_addr : 16; 
+	uint32_t get_chara_cnt : 16, host_chara_cnt : 16;
+	uint8_t http_version;
+};
+
+static int cnt =1;
+
+class HTTPParser {
+	public:
+		HTTPParser();
+		~HTTPParser();
+		void exact_data(packet pkt, http_exact_data &http_data);
+		void get_host_uri(char *http_pld, http_exact_data &http_data, int &byte_offset, int &http_pld_str_offset);
+};
+
+#endif

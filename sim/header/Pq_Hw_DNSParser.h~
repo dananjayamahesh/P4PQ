@@ -1,0 +1,38 @@
+/*
+ * Pq_Hw_DNSParser.h
+ *
+ * created:- 2015/11/03
+ * author:- Indunil Wanigasooriya
+*/ 
+
+#ifndef HEADER_PQ_HW_DNSPARSER_H_
+#define HEADER_PQ_HW_DNSPARSER_H_
+
+#include <stdint.h>
+#include <cstring>
+#include "CommonDefs.h"
+#include "CommonFuncs.h"
+#include "CommonTypes.h"
+#include "NetworkPkts.h"
+#include "TSPrint.h"
+
+struct dns_parser_data {
+	bool en;
+	uint16_t byte_offset;
+	uint16_t chara_cnt;
+	uint16_t no_of_ques;
+	uint16_t no_of_anw;
+};
+
+static int cnt =1;
+static bool sw_en = flase;
+
+class Pq_Hw_DNSParser {
+public:
+	Pq_Hw_DNSParser();
+	~Pq_Hw_DNSParser();
+	void exact_data(packet pkt, dns_parser_data &dns_data);
+	void hdr_extract (char *z_packet, ipv4_header &ipv4_hdr, dns_parser_data &dns_data, int &byte_offset);
+};
+
+#endif

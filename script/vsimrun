@@ -1,0 +1,4 @@
+#!/bin/sh
+#source ~/Workspace/hdl_workspace/scripts/load_questa.sh
+make -f ../script/CC_Makefile
+vsim -64 -do ../script/run_vsim.tcl -l ../log/sim_report.log			#-c to disable the questa GUI

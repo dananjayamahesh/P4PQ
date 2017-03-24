@@ -1,0 +1,31 @@
+# Makefile for compile the RTL code
+#Mahesh
+# 19-01-2016
+
+PWD := $(shell pwd)
+SRC_PATH := $(PWD)/../src/verilog
+INCDIR_PATH := +incdir+$(SRC_PATH)
+CC := vlog
+CC_FLAGS := +vcover=sfb
+
+VERILOG_SRC += \
+			   $(SRC_PATH)/sdn_parser_top.v \
+			   $(SRC_PATH)/sdn_parser_core.v \
+			   $(SRC_PATH)/sdn_parser_extraction_top.v \
+			   $(SRC_PATH)/pqsdn_ram_wr.v \
+			   $(SRC_PATH)/pqsdn_ram_r1w1.v \
+			   $(SRC_PATH)/sdn_parser_extraction_core.v \
+			   $(SRC_PATH)/pqsdn_action_ram_wr.v \
+			   $(SRC_PATH)/pqsdn_cam_wr.v \
+			   $(SRC_PATH)/pqsdn_cam_new.v \
+			   $(SRC_PATH)/pqsdn_ram.v \
+			   $(SRC_PATH)/sdn_parser_extraction_unit.v \
+		           $(SRC_PATH)/pqsdn_ram_async_rd.v \
+			   $(SRC_PATH)/pqsdn_cam.v
+            
+all: comp
+
+comp:
+	@echo 'Invoking : ${CC} compiler'
+	${CC} ${CC_FLAGS} ${INCDIR_PATH} ${VERILOG_SRC}
+	@echo ' '
