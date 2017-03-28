@@ -15,7 +15,7 @@ void Parser::run(){
     pkt_reader 													= 	new PacketReaderSan();
     pkt_preprocessor 											= 	new PktPreProcessorSan();
 
-    i_ret 		= pkt_reader->open_file("/home/san/paraqum/repos/P4PQ/sim/san/packetdumps/ICMP_across_dot1q.cap"); 	//name of the pcap file
+    i_ret 		= pkt_reader->open_file("../sim/san/packetdumps/ICMP_across_dot1q.cap"); 	//name of the pcap file
     if (i_ret != SUCCESS) {
         cout << "failed to open pcap file" << endl;
     }else {
@@ -60,7 +60,7 @@ void Parser::run(){
     	loop:
 
     	string ram_entry;
-    	ifstream myfile ("/home/san/paraqum/repos/P4PQ/sim/san/current_state_ram.txt");
+    	ifstream myfile ("../sim/san/current_state_ram.txt");
 		if (myfile.is_open()){
 			int current_index = 1;												//current search entry
 		    while ( getline (myfile,ram_entry) ){
@@ -154,7 +154,7 @@ void Parser::run(){
 			     	string next_header_ram_entry;
 			     	string next_header_lookup 	= 	(bitset<HEADER_ENTRY_WIDTH> (entry_no)).to_string() + next_type.to_string();
 			     	cout <<"lookup value "<< next_header_lookup << endl;
-			     	ifstream myfile1 ("/home/san/paraqum/repos/P4PQ/sim/san/next_state_ram.txt");
+			     	ifstream myfile1 ("../sim/san/next_state_ram.txt");
 			     	if(myfile1.is_open()){
 			     		while(getline(myfile1, next_header_ram_entry)){
 			     			
