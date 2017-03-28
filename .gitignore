@@ -8,3 +8,4 @@ sim/TSPrint.o
 sim/dpic_if.o
 sim/libdpic.so
 log/sim_report.log
+log/*
