@@ -25,7 +25,7 @@ PacketReader *pkt_reader;
 PktPreProcessor *pkt_preprocessor;
 ActConfProg *act_conf_programmer;
 CamConfProg *cam_conf_programmer;
-Parser1 *myparser;
+Parser *myparser;
 //Pq_Hw_GTPDecoder *gtp_decoder;
 
 bool rd_pcap_file = false;

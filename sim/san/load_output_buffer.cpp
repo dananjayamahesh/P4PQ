@@ -6,7 +6,7 @@ void load_output_buffer(bitset<OUTPUT_BUFFER_SIZE> *output_buffer, bitset<PREFET
 		output_buffer->set(*output_buffer_pointer+i, prefetched_frame->test(i));
 	}
 	*output_buffer_pointer += PREFETCH_WORD_SIZE;
-	cout << "output buffer " << *output_buffer << endl;
+	//cout << "output buffer " << *output_buffer << endl;
 
 }
 
