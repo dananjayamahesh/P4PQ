@@ -9,85 +9,13 @@
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
 # do ../script/run_vsim.tcl 
-# /home/mahesh/paraqum/repos/sdn_parser_complete/work
-# ** Error: vlib work
-# ** Warning: (vlib-34) Library already exists at "work".
-# TODO : put glbl
-# make -f ../script/RTL_Makefile   #have to edit this file
-# make[1]: Entering directory '/home/mahesh/paraqum/repos/sdn_parser_complete/work'
-# Invoking : vlog compiler
-# vlog +vcover=sfb +incdir+/home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_top.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_core.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_top.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram_wr.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram_r1w1.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_core.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_action_ram_wr.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam_wr.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam_new.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_unit.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram_async_rd.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam.v
-# QuestaSim-64 vlog 10.2b Compiler 2013.05 May 16 2013
-# -- Compiling module sdn_parser_top
-# -- Compiling module sdn_parser_core
-# -- Compiling module sdn_parser_extraction_top
-# -- Compiling module pqsdn_ram_wr
-# -- Compiling module pqsdn_ram_r1w1
-# -- Compiling module sdn_parser_extraction_core
-# ** Error: /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_core.v(59): (vlog-2730) Undefined variable: 'PRS_HEAD_ADDR_W'.
-# ** Error: /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_core.v(59): (vlog-2730) Undefined variable: 'PRS_HEAD_FIELD_ADDR_W'.
-# ** Error: /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_core.v(62): 'PRS_HEAD_ADDR_W' already declared in this scope.
-# ** Error: /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_core.v(63): 'PRS_HEAD_FIELD_ADDR_W' already declared in this scope.
-# -- Compiling module pqsdn_action_ram_wr
-# -- Compiling module pqsdn_cam_wr
-# -- Compiling module pqsdn_cam_new
-# -- Compiling module pqsdn_ram
-# -- Compiling module sdn_parser_extraction_unit
-# -- Compiling module pqsdn_ram_async_rd
-# -- Compiling module pqsdn_cam
-# ../script/RTL_Makefile:29: recipe for target 'comp' failed
-# make[1]: Leaving directory '/home/mahesh/paraqum/repos/sdn_parser_complete/work'
-# /home/mahesh/paraqum/repos/sdn_parser_complete/work/../script/Makefile:44: recipe for target 'rtl' failed
-# make[1]: *** [comp] Error 2
-# make: *** [rtl] Error 2
-# Error in macro ./../script/run_vsim.tcl line 15
+# /home/mahesh/paraqum/repos/P4PQ/work
 # vlib work
-# ** Warning: (vlib-34) Library already exists at "work".
 # TODO : put glbl
 # make -f ../script/RTL_Makefile   #have to edit this file
-# make[1]: Entering directory '/home/mahesh/paraqum/repos/sdn_parser_complete/work'
+# make[1]: Entering directory '/home/mahesh/paraqum/repos/P4PQ/work'
 # Invoking : vlog compiler
-# vlog +vcover=sfb +incdir+/home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_top.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_core.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_top.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram_wr.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram_r1w1.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_core.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_action_ram_wr.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam_wr.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam_new.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_unit.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram_async_rd.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam.v
-# QuestaSim-64 vlog 10.2b Compiler 2013.05 May 16 2013
-# -- Compiling module sdn_parser_top
-# -- Compiling module sdn_parser_core
-# -- Compiling module sdn_parser_extraction_top
-# -- Compiling module pqsdn_ram_wr
-# -- Compiling module pqsdn_ram_r1w1
-# -- Compiling module sdn_parser_extraction_core
-# ** Error: /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_core.v(59): (vlog-2730) Undefined variable: 'PRS_HEAD_ADDR_W'.
-# ** Error: /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_core.v(59): (vlog-2730) Undefined variable: 'PRS_HEAD_FIELD_ADDR_W'.
-# ** Error: /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_core.v(62): 'PRS_HEAD_ADDR_W' already declared in this scope.
-# ** Error: /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_core.v(63): 'PRS_HEAD_FIELD_ADDR_W' already declared in this scope.
-# -- Compiling module pqsdn_action_ram_wr
-# -- Compiling module pqsdn_cam_wr
-# -- Compiling module pqsdn_cam_new
-# -- Compiling module pqsdn_ram
-# -- Compiling module sdn_parser_extraction_unit
-# -- Compiling module pqsdn_ram_async_rd
-# -- Compiling module pqsdn_cam
-# ../script/RTL_Makefile:29: recipe for target 'comp' failed
-# make[1]: Leaving directory '/home/mahesh/paraqum/repos/sdn_parser_complete/work'
-# /home/mahesh/paraqum/repos/sdn_parser_complete/work/../script/Makefile:44: recipe for target 'rtl' failed
-# make[1]: *** [comp] Error 2
-# make: *** [rtl] Error 2
-#     while executing
-# "exec </dev/null /usr/bin/make -f /home/mahesh/paraqum/repos/sdn_parser_complete/work/../script/Makefile"
-#     ("uplevel" body line 1)
-#     invoked from within
-# "uplevel 1 exec $redir $new [lrange $args 1 end]"
-#     (procedure "::unknown" line 47)
-#     invoked from within
-# "make -f $mypath/../script/Makefile"
-do ../script/run_vsim.tcl
-# /home/mahesh/paraqum/repos/sdn_parser_complete/work
-# ** Error: vlib work
-# ** Warning: (vlib-34) Library already exists at "work".
-# TODO : put glbl
-# make -f ../script/RTL_Makefile   #have to edit this file
-# make[1]: Entering directory '/home/mahesh/paraqum/repos/sdn_parser_complete/work'
-# Invoking : vlog compiler
-# vlog +vcover=sfb +incdir+/home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_top.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_core.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_top.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram_wr.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram_r1w1.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_core.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_action_ram_wr.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam_wr.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam_new.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_unit.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram_async_rd.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam.v
+# vlog +vcover=sfb +incdir+/home/mahesh/paraqum/repos/P4PQ/work/../src/verilog /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_top.v /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_core.v /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_extraction_top.v /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/pqsdn_ram_wr.v /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/pqsdn_ram_r1w1.v /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_extraction_core.v /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/pqsdn_action_ram_wr.v /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/pqsdn_cam_wr.v /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/pqsdn_cam_new.v /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/pqsdn_ram.v /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_extraction_unit.v /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/pqsdn_ram_async_rd.v /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/pqsdn_cam.v
 # QuestaSim-64 vlog 10.2b Compiler 2013.05 May 16 2013
 # -- Compiling module sdn_parser_top
 # -- Compiling module sdn_parser_core
@@ -108,186 +36,7 @@ do ../script/run_vsim.tcl
 # 	pqsdn_ram
 # 	pqsdn_cam
 #  
-# make[1]: Leaving directory '/home/mahesh/paraqum/repos/sdn_parser_complete/work'
-# vlog ../sim/tb_defs.sv ../sim/axis_convertor.v ../sim/ram_r1w1.v  
-# QuestaSim-64 vlog 10.2b Compiler 2013.05 May 16 2013
-# -- Compiling package tb_defs
-# ** Error: ../sim/tb_defs.sv(42): (vlog-2730) Undefined variable: 'PRS_HEAD_ADDR_W'.
-# ** Error: ../sim/tb_defs.sv(42): (vlog-2730) Undefined variable: 'PRS_HEAD_FIELD_ADDR_W'.
-# ** Error: ../sim/tb_defs.sv(43): 'PRS_HEAD_ADDR_W' already declared in this scope.
-# ** Error: ../sim/tb_defs.sv(44): 'PRS_HEAD_FIELD_ADDR_W' already declared in this scope.
-# ** Error: ../sim/tb_defs.sv(49): 'PRS_FIELD_BUFF_DATA_W' already declared in this scope.
-# ** Error: ../sim/tb_defs.sv(50): 'PRS_FIELD_BUFF_ADDR_W' already declared in this scope.
-# -- Compiling module axis_convertor
-# -- Compiling module ram_r1w1
-# /home/mahesh/paraqum/repos/sdn_parser_complete/work/../script/Makefile:50: recipe for target 'sv' failed
-# make: *** [sv] Error 2
-# Error in macro ./../script/run_vsim.tcl line 15
-# vlib work
-# ** Warning: (vlib-34) Library already exists at "work".
-# TODO : put glbl
-# make -f ../script/RTL_Makefile   #have to edit this file
-# make[1]: Entering directory '/home/mahesh/paraqum/repos/sdn_parser_complete/work'
-# Invoking : vlog compiler
-# vlog +vcover=sfb +incdir+/home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_top.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_core.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_top.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram_wr.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram_r1w1.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_core.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_action_ram_wr.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam_wr.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam_new.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_unit.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram_async_rd.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam.v
-# QuestaSim-64 vlog 10.2b Compiler 2013.05 May 16 2013
-# -- Compiling module sdn_parser_top
-# -- Compiling module sdn_parser_core
-# -- Compiling module sdn_parser_extraction_top
-# -- Compiling module pqsdn_ram_wr
-# -- Compiling module pqsdn_ram_r1w1
-# -- Compiling module sdn_parser_extraction_core
-# -- Compiling module pqsdn_action_ram_wr
-# -- Compiling module pqsdn_cam_wr
-# -- Compiling module pqsdn_cam_new
-# -- Compiling module pqsdn_ram
-# -- Compiling module sdn_parser_extraction_unit
-# -- Compiling module pqsdn_ram_async_rd
-# -- Compiling module pqsdn_cam
-# 
-# Top level modules:
-# 	sdn_parser_top
-# 	pqsdn_ram
-# 	pqsdn_cam
-#  
-# make[1]: Leaving directory '/home/mahesh/paraqum/repos/sdn_parser_complete/work'
-# vlog ../sim/tb_defs.sv ../sim/axis_convertor.v ../sim/ram_r1w1.v  
-# QuestaSim-64 vlog 10.2b Compiler 2013.05 May 16 2013
-# -- Compiling package tb_defs
-# ** Error: ../sim/tb_defs.sv(42): (vlog-2730) Undefined variable: 'PRS_HEAD_ADDR_W'.
-# ** Error: ../sim/tb_defs.sv(42): (vlog-2730) Undefined variable: 'PRS_HEAD_FIELD_ADDR_W'.
-# ** Error: ../sim/tb_defs.sv(43): 'PRS_HEAD_ADDR_W' already declared in this scope.
-# ** Error: ../sim/tb_defs.sv(44): 'PRS_HEAD_FIELD_ADDR_W' already declared in this scope.
-# ** Error: ../sim/tb_defs.sv(49): 'PRS_FIELD_BUFF_DATA_W' already declared in this scope.
-# ** Error: ../sim/tb_defs.sv(50): 'PRS_FIELD_BUFF_ADDR_W' already declared in this scope.
-# -- Compiling module axis_convertor
-# -- Compiling module ram_r1w1
-# /home/mahesh/paraqum/repos/sdn_parser_complete/work/../script/Makefile:50: recipe for target 'sv' failed
-# make: *** [sv] Error 2
-#     while executing
-# "exec </dev/null /usr/bin/make -f /home/mahesh/paraqum/repos/sdn_parser_complete/work/../script/Makefile"
-#     ("uplevel" body line 1)
-#     invoked from within
-# "uplevel 1 exec $redir $new [lrange $args 1 end]"
-#     (procedure "::unknown" line 47)
-#     invoked from within
-# "make -f $mypath/../script/Makefile"
-do ../script/run_vsim.tcl
-# /home/mahesh/paraqum/repos/sdn_parser_complete/work
-# ** Error: vlib work
-# ** Warning: (vlib-34) Library already exists at "work".
-# TODO : put glbl
-# make -f ../script/RTL_Makefile   #have to edit this file
-# make[1]: Entering directory '/home/mahesh/paraqum/repos/sdn_parser_complete/work'
-# Invoking : vlog compiler
-# vlog +vcover=sfb +incdir+/home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_top.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_core.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_top.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram_wr.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram_r1w1.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_core.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_action_ram_wr.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam_wr.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam_new.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_unit.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram_async_rd.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam.v
-# QuestaSim-64 vlog 10.2b Compiler 2013.05 May 16 2013
-# -- Compiling module sdn_parser_top
-# -- Compiling module sdn_parser_core
-# -- Compiling module sdn_parser_extraction_top
-# -- Compiling module pqsdn_ram_wr
-# -- Compiling module pqsdn_ram_r1w1
-# -- Compiling module sdn_parser_extraction_core
-# -- Compiling module pqsdn_action_ram_wr
-# -- Compiling module pqsdn_cam_wr
-# -- Compiling module pqsdn_cam_new
-# -- Compiling module pqsdn_ram
-# -- Compiling module sdn_parser_extraction_unit
-# -- Compiling module pqsdn_ram_async_rd
-# -- Compiling module pqsdn_cam
-# 
-# Top level modules:
-# 	sdn_parser_top
-# 	pqsdn_ram
-# 	pqsdn_cam
-#  
-# make[1]: Leaving directory '/home/mahesh/paraqum/repos/sdn_parser_complete/work'
-# vlog ../sim/tb_defs.sv ../sim/axis_convertor.v ../sim/ram_r1w1.v  
-# QuestaSim-64 vlog 10.2b Compiler 2013.05 May 16 2013
-# -- Compiling package tb_defs
-# ** Error: ../sim/tb_defs.sv(51): 'PRS_FIELD_BUFF_DATA_W' already declared in this scope.
-# ** Error: ../sim/tb_defs.sv(52): 'PRS_FIELD_BUFF_ADDR_W' already declared in this scope.
-# -- Compiling module axis_convertor
-# -- Compiling module ram_r1w1
-# /home/mahesh/paraqum/repos/sdn_parser_complete/work/../script/Makefile:50: recipe for target 'sv' failed
-# make: *** [sv] Error 2
-# Error in macro ./../script/run_vsim.tcl line 15
-# vlib work
-# ** Warning: (vlib-34) Library already exists at "work".
-# TODO : put glbl
-# make -f ../script/RTL_Makefile   #have to edit this file
-# make[1]: Entering directory '/home/mahesh/paraqum/repos/sdn_parser_complete/work'
-# Invoking : vlog compiler
-# vlog +vcover=sfb +incdir+/home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_top.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_core.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_top.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram_wr.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram_r1w1.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_core.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_action_ram_wr.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam_wr.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam_new.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_unit.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram_async_rd.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam.v
-# QuestaSim-64 vlog 10.2b Compiler 2013.05 May 16 2013
-# -- Compiling module sdn_parser_top
-# -- Compiling module sdn_parser_core
-# -- Compiling module sdn_parser_extraction_top
-# -- Compiling module pqsdn_ram_wr
-# -- Compiling module pqsdn_ram_r1w1
-# -- Compiling module sdn_parser_extraction_core
-# -- Compiling module pqsdn_action_ram_wr
-# -- Compiling module pqsdn_cam_wr
-# -- Compiling module pqsdn_cam_new
-# -- Compiling module pqsdn_ram
-# -- Compiling module sdn_parser_extraction_unit
-# -- Compiling module pqsdn_ram_async_rd
-# -- Compiling module pqsdn_cam
-# 
-# Top level modules:
-# 	sdn_parser_top
-# 	pqsdn_ram
-# 	pqsdn_cam
-#  
-# make[1]: Leaving directory '/home/mahesh/paraqum/repos/sdn_parser_complete/work'
-# vlog ../sim/tb_defs.sv ../sim/axis_convertor.v ../sim/ram_r1w1.v  
-# QuestaSim-64 vlog 10.2b Compiler 2013.05 May 16 2013
-# -- Compiling package tb_defs
-# ** Error: ../sim/tb_defs.sv(51): 'PRS_FIELD_BUFF_DATA_W' already declared in this scope.
-# ** Error: ../sim/tb_defs.sv(52): 'PRS_FIELD_BUFF_ADDR_W' already declared in this scope.
-# -- Compiling module axis_convertor
-# -- Compiling module ram_r1w1
-# /home/mahesh/paraqum/repos/sdn_parser_complete/work/../script/Makefile:50: recipe for target 'sv' failed
-# make: *** [sv] Error 2
-#     while executing
-# "exec </dev/null /usr/bin/make -f /home/mahesh/paraqum/repos/sdn_parser_complete/work/../script/Makefile"
-#     ("uplevel" body line 1)
-#     invoked from within
-# "uplevel 1 exec $redir $new [lrange $args 1 end]"
-#     (procedure "::unknown" line 47)
-#     invoked from within
-# "make -f $mypath/../script/Makefile"
-
-do ../script/run_vsim.tcl
-# /home/mahesh/paraqum/repos/sdn_parser_complete/work
-# vlib work
-# ** Warning: (vlib-34) Library already exists at "work".
-# TODO : put glbl
-# make -f ../script/RTL_Makefile   #have to edit this file
-# make[1]: Entering directory '/home/mahesh/paraqum/repos/sdn_parser_complete/work'
-# Invoking : vlog compiler
-# vlog +vcover=sfb +incdir+/home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_top.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_core.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_top.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram_wr.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram_r1w1.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_core.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_action_ram_wr.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam_wr.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam_new.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_unit.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram_async_rd.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam.v
-# QuestaSim-64 vlog 10.2b Compiler 2013.05 May 16 2013
-# -- Compiling module sdn_parser_top
-# -- Compiling module sdn_parser_core
-# -- Compiling module sdn_parser_extraction_top
-# -- Compiling module pqsdn_ram_wr
-# -- Compiling module pqsdn_ram_r1w1
-# -- Compiling module sdn_parser_extraction_core
-# -- Compiling module pqsdn_action_ram_wr
-# -- Compiling module pqsdn_cam_wr
-# -- Compiling module pqsdn_cam_new
-# -- Compiling module pqsdn_ram
-# -- Compiling module sdn_parser_extraction_unit
-# -- Compiling module pqsdn_ram_async_rd
-# -- Compiling module pqsdn_cam
-# 
-# Top level modules:
-# 	sdn_parser_top
-# 	pqsdn_ram
-# 	pqsdn_cam
-#  
-# make[1]: Leaving directory '/home/mahesh/paraqum/repos/sdn_parser_complete/work'
+# make[1]: Leaving directory '/home/mahesh/paraqum/repos/P4PQ/work'
 # vlog ../sim/tb_defs.sv ../sim/axis_convertor.v ../sim/ram_r1w1.v  
 # QuestaSim-64 vlog 10.2b Compiler 2013.05 May 16 2013
 # -- Compiling package tb_defs
@@ -303,7 +52,7 @@ do ../script/run_vsim.tcl
 # 
 # Top level modules:
 # 	--none--
-#make -f /home/mahesh/paraqum/repos/sdn_parser_complete/work     /../script/CC_Makefile
+#make -f /home/mahesh/paraqum/repos/P4PQ/work     /../script/CC_Makefile
 # vlog ../sim/sdn_parser_tb.sv
 # QuestaSim-64 vlog 10.2b Compiler 2013.05 May 16 2013
 # -- Compiling module sdn_parser_tb
@@ -312,18 +61,18 @@ do ../script/run_vsim.tcl
 # 
 # Top level modules:
 # 	sdn_parser_tb
-# vsim -coverage -lib work -voptargs=\"+acc\" -t 1ps -sv_lib /home/mahesh/paraqum/repos/sdn_parser_complete/work/../sim/libdpic work.sdn_parser_tb 
+# vsim -coverage -lib work -voptargs=\"+acc\" -t 1ps -sv_lib /home/mahesh/paraqum/repos/P4PQ/work/../sim/libdpic work.sdn_parser_tb 
 # ** Note: (vsim-3812) Design is being optimized...
-# ** Warning: /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_top.v(566): (vopt-2685) [TFMPC] - Too few port connections for 'ext_core_block'.  Expected 25, found 22.
-# ** Warning: /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_top.v(566): (vopt-2718) [TFMPC] - Missing connection for port 'parser_field_buff_partial_valid_o'.
-# ** Warning: /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_top.v(566): (vopt-2718) [TFMPC] - Missing connection for port 'parser_field_buff_partial_len_o'.
-# ** Warning: /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_top.v(566): (vopt-2718) [TFMPC] - Missing connection for port 'parser_field_buff_partial_data_o'.
+# ** Warning: /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_extraction_top.v(634): (vopt-2685) [TFMPC] - Too few port connections for 'ext_core_block'.  Expected 33, found 30.
+# ** Warning: /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_extraction_top.v(634): (vopt-2718) [TFMPC] - Missing connection for port 'parser_field_buff_partial_valid_o'.
+# ** Warning: /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_extraction_top.v(634): (vopt-2718) [TFMPC] - Missing connection for port 'parser_field_buff_partial_len_o'.
+# ** Warning: /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_extraction_top.v(634): (vopt-2718) [TFMPC] - Missing connection for port 'parser_field_buff_partial_data_o'.
 # ** Note: (vopt-143) Recognized 1 FSM in module "sdn_parser_extraction_top(fast)".
+# ** Warning: /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_core.v(416): (vopt-2685) [TFMPC] - Too few port connections for 'pqsdn_cam_wr_block'.  Expected 15, found 14.
+# ** Warning: /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_core.v(416): (vopt-2718) [TFMPC] - Missing connection for port 'rdvalid_o'.
 # ** Note: (vopt-143) Recognized 2 FSMs in module "axis_convertor(fast)".
 # ** Note: (vopt-143) Recognized 2 FSMs in module "axis_convertor(fast__1)".
 # ** Note: (vopt-143) Recognized 2 FSMs in module "axis_convertor(fast__2)".
-# ** Warning: /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_core.v(370): (vopt-2685) [TFMPC] - Too few port connections for 'pqsdn_cam_wr_block'.  Expected 15, found 14.
-# ** Warning: /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_core.v(370): (vopt-2718) [TFMPC] - Missing connection for port 'rdvalid_o'.
 # ** Note: (vopt-143) Recognized 1 FSM in module "pqsdn_cam_wr(fast)".
 # ** Note: (vopt-143) Recognized 1 FSM in module "pqsdn_action_ram_wr(fast)".
 # ** Note: (vopt-143) Recognized 1 FSM in module "pqsdn_ram_wr(fast)".
@@ -349,24 +98,24 @@ do ../script/run_vsim.tcl
 # Loading work.pqsdn_cam_wr(fast)
 # Loading work.pqsdn_cam_new(fast)
 # Loading work.pqsdn_ram_async_rd(fast)
-# ** Warning: (vsim-PLI-3003) ../sim/sdn_parser_tb.sv(157): [TOFD] - System task or function '$vcdpluson' is not defined.
+# ** Warning: (vsim-PLI-3003) ../sim/sdn_parser_tb.sv(161): [TOFD] - System task or function '$vcdpluson' is not defined.
 #         Region: /sdn_parser_tb
-# ** Warning: (vsim-3015) ../sim/sdn_parser_tb.sv(640): [PCDPC] - Port size (512 or 512) does not match connection size (1) for port 'parser_axis_tuple_tdata_o'. The port definition is at: /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_top.v(138).
-#         Region: /sdn_parser_tb/parser_block
-# ** Warning: (vsim-3015) ../sim/sdn_parser_tb.sv(640): [PCDPC] - Port size (64 or 64) does not match connection size (1) for port 'parser_axis_tuple_tkeep_o'. The port definition is at: /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_top.v(139).
-#         Region: /sdn_parser_tb/parser_block
-# ** Warning: (vsim-3017) /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_top.v(566): [TFMPC] - Too few port connections. Expected 25, found 22.
-#         Region: /sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block
-# ** Warning: (vsim-3722) /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_top.v(566): [TFMPC] - Missing connection for port 'parser_field_buff_partial_data_o'.
-# ** Warning: (vsim-3722) /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_top.v(566): [TFMPC] - Missing connection for port 'parser_field_buff_partial_len_o'.
-# ** Warning: (vsim-3722) /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_top.v(566): [TFMPC] - Missing connection for port 'parser_field_buff_partial_valid_o'.
-# ** Warning: (vsim-3015) /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_core.v(336): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'rdaddr_i'. The port definition is at: /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_action_ram_wr.v(73).
-#         Region: /sdn_parser_tb/parser_block/parser_block/pqsdn_action_ram_wr_block
-# ** Warning: (vsim-3015) /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_core.v(370): [PCDPC] - Port size (64 or 64) does not match connection size (55) for port 'rddata_i'. The port definition is at: /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam_wr.v(72).
-#         Region: /sdn_parser_tb/parser_block/parser_block/pqsdn_cam_wr_block
-# ** Warning: (vsim-3015) /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam_wr.v(270): [PCDPC] - Port size (55 or 55) does not match connection size (64) for port 'rddata_b_i'. The port definition is at: /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam_new.v(63).
-#         Region: /sdn_parser_tb/parser_block/parser_block/pqsdn_cam_wr_block/pqsdn_lookup_table
-# Loading /home/mahesh/paraqum/repos/sdn_parser_complete/work/../sim/libdpic.so
+# ** Warning: (vsim-3015) ../sim/sdn_parser_tb.sv(666): [PCDPC] - Port size (512 or 512) does not match connection size (1) for port 'parser_axis_tuple_tdata_o'. The port definition is at: /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_top.v(156).
+#         Region: /sdn_parser_tb/parser_top_block
+# ** Warning: (vsim-3015) ../sim/sdn_parser_tb.sv(666): [PCDPC] - Port size (64 or 64) does not match connection size (1) for port 'parser_axis_tuple_tkeep_o'. The port definition is at: /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_top.v(157).
+#         Region: /sdn_parser_tb/parser_top_block
+# ** Warning: (vsim-3017) /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_extraction_top.v(634): [TFMPC] - Too few port connections. Expected 33, found 30.
+#         Region: /sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_block
+# ** Warning: (vsim-3722) /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_extraction_top.v(634): [TFMPC] - Missing connection for port 'parser_field_buff_partial_data_o'.
+# ** Warning: (vsim-3722) /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_extraction_top.v(634): [TFMPC] - Missing connection for port 'parser_field_buff_partial_len_o'.
+# ** Warning: (vsim-3722) /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_extraction_top.v(634): [TFMPC] - Missing connection for port 'parser_field_buff_partial_valid_o'.
+# ** Warning: (vsim-3015) /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_core.v(382): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'rdaddr_i'. The port definition is at: /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/pqsdn_action_ram_wr.v(73).
+#         Region: /sdn_parser_tb/parser_top_block/parser_core_block/pqsdn_action_ram_wr_block
+# ** Warning: (vsim-3015) /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_core.v(416): [PCDPC] - Port size (64 or 64) does not match connection size (55) for port 'rddata_i'. The port definition is at: /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/pqsdn_cam_wr.v(72).
+#         Region: /sdn_parser_tb/parser_top_block/parser_core_block/pqsdn_cam_wr_block
+# ** Warning: (vsim-3015) /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/pqsdn_cam_wr.v(270): [PCDPC] - Port size (55 or 55) does not match connection size (64) for port 'rddata_b_i'. The port definition is at: /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/pqsdn_cam_new.v(63).
+#         Region: /sdn_parser_tb/parser_top_block/parser_core_block/pqsdn_cam_wr_block/pqsdn_lookup_table
+# Loading /home/mahesh/paraqum/repos/P4PQ/work/../sim/libdpic.so
 # ** Warning: (vsim-8634) Code was not compiled with coverage options.
 # CamConfProg
 # OpenFile
@@ -589,134 +338,63 @@ do ../script/run_vsim.tcl
 # WORD : 026 00000011 90088008
 # WORD : 026 00000012 90088008
 # ********************************FIRST TIME
-#  0
-# Info
-# FRAME : 0000000000000008
-# LEN   : 00000009
-# pkt_len : 00000009 00000008 00000001
-# Length Write : 00000001
-# FRAME : 68a828246261e4a8
-# FRAME : b64f5a9c81000267
-# FRAME : 080045000028c970
-# FRAME : 0000fe11c14bca45
-# FRAME : ced0ca45ceac316b
-# FRAME : 084b0014000048b0
-# FRAME : 00088671f609000e
-# FRAME : 5f00000000000000
-# WORD_512 : 68a828246261e4a8b64f5a9c81000267080045000028c9700000fe11c14bca45ced0ca45ceac316b084b0014000048b000088671f609000e5f00000000000000
-#  1
-# *****************************************CALL svReadPkts
-# Info
-# FRAME : 0000000000000009
-# LEN   : 0000000a
-# pkt_len : 0000000a 00000009 00000001
-# Length Write : 00000001
-# FRAME : 68a828246261e4a8
-# FRAME : b64f5a9c81000267
-# FRAME : 080045000033695c
-# FRAME : 0000fe112150ca45
-# FRAME : ced0ca45ceb1084b
-# FRAME : 084b001f000048ab
-# FRAME : 0013879b96371b83
-# FRAME : 8b00020002001000
-# WORD_512 : 68a828246261e4a8b64f5a9c81000267080045000033695c0000fe112150ca45ced0ca45ceb1084b084b001f000048ab0013879b96371b838b00020002001000
-# FRAME : 030001009b000000
-# WORD_512 : 030001009b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-#  2
-# *****************************************CALL svReadPkts
-# Info
-# FRAME : 0000000000000008
-# LEN   : 00000009
-# pkt_len : 00000009 00000008 00000001
-# Length Write : 00000001
-# FRAME : e4a8b64f5a9c68a8
-# FRAME : 2824626181000267
-# FRAME : 080045e00028743c
-# FRAME : 00003f11d4acca45
-# FRAME : cea0ca45ced0084b
-# FRAME : 084b0014000048aa
-# FRAME : 00080f90945f31ef
-# FRAME : 3900020000000000
-# WORD_512 : e4a8b64f5a9c68a82824626181000267080045e00028743c00003f11d4acca45cea0ca45ced0084b084b0014000048aa00080f90945f31ef3900020000000000
-#  3
-# *****************************************CALL svReadPkts
-# Info
-# FRAME : 0000000000000009
-# LEN   : 0000000a
-# pkt_len : 0000000a 00000009 00000001
-# Length Write : 00000001
-# FRAME : 68a828246261e4a8
-# FRAME : b64f5a9c81000267
-# FRAME : 080045000033f801
-# FRAME : 0000fe1192a8ca45
-# FRAME : ced0ca45ceb3084b
-# FRAME : 084b001f000048ab
-# FRAME : 00139bd028361b5c
-# FRAME : 4e00020002001000
-# WORD_512 : 68a828246261e4a8b64f5a9c81000267080045000033f8010000fe1192a8ca45ced0ca45ceb3084b084b001f000048ab00139bd028361b5c4e00020002001000
-# FRAME : 030001009b000000
-# WORD_512 : 030001009b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-#  4
-# *****************************************CALL svReadPkts
-# Info
-# FRAME : 0000000000000009
-# LEN   : 0000000a
-# pkt_len : 0000000a 00000009 00000001
-# Length Write : 00000001
-# FRAME : 68a828246261e4a8
-# FRAME : b64f5a9c81000267
-# FRAME : 080045000033cf11
-# FRAME : 0000fe11bba9ca45
-# FRAME : ced0ca45cea2084b
-# FRAME : 084b001f000048ab
-# FRAME : 001389f82a3e1f64
-# FRAME : 4f00020002001000
-# WORD_512 : 68a828246261e4a8b64f5a9c81000267080045000033cf110000fe11bba9ca45ced0ca45cea2084b084b001f000048ab001389f82a3e1f644f00020002001000
-# FRAME : 030001009b000000
-# WORD_512 : 030001009b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-# ** Note: $finish    : ../sim/sdn_parser_tb.sv(217)
-#    Time: 16444 ns  Iteration: 0  Instance: /sdn_parser_tb
+# Error at svReadPkts :  1
+# ** Note: $finish    : ../sim/sdn_parser_tb.sv(354)
+#    Time: 1374 ns  Iteration: 0  Instance: /sdn_parser_tb
 # 1
-# Break in Module sdn_parser_tb at ../sim/sdn_parser_tb.sv line 217
+# Break in Task load_packets at ../sim/sdn_parser_tb.sv line 354
 # Simulation Breakpoint: 1
-# Break in Module sdn_parser_tb at ../sim/sdn_parser_tb.sv line 217
+# Break in Task load_packets at ../sim/sdn_parser_tb.sv line 354
 # MACRO ./../script/run_vsim.tcl PAUSED at line 38
 add wave -position insertpoint  \
-sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/HEAD_FIELD_LEN_W \
-sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/clk \
-sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/resetn \
-sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/ext_core_flush_i \
-sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/ext_core_head_valid_i \
-sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/ext_core_data_word_i \
-sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/ext_core_data_enable_i \
-sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/ext_core_data_count_i \
-sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/ext_core_start_addr_i \
-sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/ext_core_finish_addr_o \
-sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/ext_core_action_field_i \
-sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/ext_core_action_length_i \
-sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/ext_core_action_valid_i \
-sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/ext_core_lookup_value_i \
-sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/ext_core_lookup_valid_i \
-sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/ext_core_lookup_value_o \
-sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/ext_core_lookup_valid_o \
-sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/ext_core_dylen_value_i \
-sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/ext_core_dylen_valid_i \
-sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/ext_core_dylen_value_o \
-sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/ext_core_dylen_valid_o \
-sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/ext_core_hold_en_o \
-sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/ext_core_head_finished_o \
-sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/parser_field_buff_partial_data_o \
-sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/parser_field_buff_partial_len_o \
-sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/parser_field_buff_partial_valid_o
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/clk \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/resetn \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/pkt_buf_rd_en_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/pkt_buf_rd_addr_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/pkt_buf_rd_data_i \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/pkt_wr_ptr_buf_i \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/pkt_rd_ptr_buf_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_pkt_id_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_pkt_valid_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_pkt_err_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_field_buff_data_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_field_buff_len_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_field_buff_valid_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_ext_buff_data_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_ext_buff_len_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_ext_buff_valid_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_offset_buff_data_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_offset_buff_len_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_offset_buff_valid_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/programming \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/action_ram_rd_data_en_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/action_ram_rd_data_addr_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/action_ram_rd_data_i \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/action_ram_rd_len_i \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/cam_lookup_en_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/cam_lookup_data_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/cam_lookup_addr_i \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/cam_lookup_value_i \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/prog_en \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/cam_prog_en \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_exception_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_flush \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_field_buff_data_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_field_buff_len_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_ext_buff_data_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_ext_buff_len_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_field_buff_data
+add wave -position insertpoint  \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/state_prs_ext_core
 do ../script/run_vsim.tcl
-# /home/mahesh/paraqum/repos/sdn_parser_complete/work
+# /home/mahesh/paraqum/repos/P4PQ/work
 # vlib work
 # ** Warning: (vlib-34) Library already exists at "work".
 # TODO : put glbl
 # make -f ../script/RTL_Makefile   #have to edit this file
-# make[1]: Entering directory '/home/mahesh/paraqum/repos/sdn_parser_complete/work'
+# make[1]: Entering directory '/home/mahesh/paraqum/repos/P4PQ/work'
 # Invoking : vlog compiler
-# vlog +vcover=sfb +incdir+/home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_top.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_core.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_top.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram_wr.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram_r1w1.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_core.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_action_ram_wr.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam_wr.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam_new.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_unit.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_ram_async_rd.v /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam.v
+# vlog +vcover=sfb +incdir+/home/mahesh/paraqum/repos/P4PQ/work/../src/verilog /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_top.v /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_core.v /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_extraction_top.v /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/pqsdn_ram_wr.v /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/pqsdn_ram_r1w1.v /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_extraction_core.v /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/pqsdn_action_ram_wr.v /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/pqsdn_cam_wr.v /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/pqsdn_cam_new.v /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/pqsdn_ram.v /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_extraction_unit.v /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/pqsdn_ram_async_rd.v /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/pqsdn_cam.v
 # QuestaSim-64 vlog 10.2b Compiler 2013.05 May 16 2013
 # -- Compiling module sdn_parser_top
 # -- Compiling module sdn_parser_core
@@ -737,7 +415,7 @@ do ../script/run_vsim.tcl
 # 	pqsdn_ram
 # 	pqsdn_cam
 #  
-# make[1]: Leaving directory '/home/mahesh/paraqum/repos/sdn_parser_complete/work'
+# make[1]: Leaving directory '/home/mahesh/paraqum/repos/P4PQ/work'
 # vlog ../sim/tb_defs.sv ../sim/axis_convertor.v ../sim/ram_r1w1.v  
 # QuestaSim-64 vlog 10.2b Compiler 2013.05 May 16 2013
 # -- Compiling package tb_defs
@@ -753,7 +431,7 @@ do ../script/run_vsim.tcl
 # 
 # Top level modules:
 # 	--none--
-#make -f /home/mahesh/paraqum/repos/sdn_parser_complete/work     /../script/CC_Makefile
+#make -f /home/mahesh/paraqum/repos/P4PQ/work     /../script/CC_Makefile
 # vlog ../sim/sdn_parser_tb.sv
 # QuestaSim-64 vlog 10.2b Compiler 2013.05 May 16 2013
 # -- Compiling module sdn_parser_tb
@@ -762,7 +440,7 @@ do ../script/run_vsim.tcl
 # 
 # Top level modules:
 # 	sdn_parser_tb
-# vsim -coverage -lib work -voptargs=\"+acc\" -t 1ps -sv_lib /home/mahesh/paraqum/repos/sdn_parser_complete/work/../sim/libdpic work.sdn_parser_tb 
+# vsim -coverage -lib work -voptargs=\"+acc\" -t 1ps -sv_lib /home/mahesh/paraqum/repos/P4PQ/work/../sim/libdpic work.sdn_parser_tb 
 # Loading sv_std.std
 # Loading work.tb_defs(fast)
 # Loading work.dpic_if(fast)
@@ -785,24 +463,24 @@ do ../script/run_vsim.tcl
 # Loading work.pqsdn_cam_wr(fast)
 # Loading work.pqsdn_cam_new(fast)
 # Loading work.pqsdn_ram_async_rd(fast)
-# ** Warning: (vsim-PLI-3003) ../sim/sdn_parser_tb.sv(157): [TOFD] - System task or function '$vcdpluson' is not defined.
+# ** Warning: (vsim-PLI-3003) ../sim/sdn_parser_tb.sv(161): [TOFD] - System task or function '$vcdpluson' is not defined.
 #         Region: /sdn_parser_tb
-# ** Warning: (vsim-3015) ../sim/sdn_parser_tb.sv(640): [PCDPC] - Port size (512 or 512) does not match connection size (1) for port 'parser_axis_tuple_tdata_o'. The port definition is at: /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_top.v(138).
-#         Region: /sdn_parser_tb/parser_block
-# ** Warning: (vsim-3015) ../sim/sdn_parser_tb.sv(640): [PCDPC] - Port size (64 or 64) does not match connection size (1) for port 'parser_axis_tuple_tkeep_o'. The port definition is at: /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_top.v(139).
-#         Region: /sdn_parser_tb/parser_block
-# ** Warning: (vsim-3017) /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_top.v(566): [TFMPC] - Too few port connections. Expected 25, found 22.
-#         Region: /sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block
-# ** Warning: (vsim-3722) /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_top.v(566): [TFMPC] - Missing connection for port 'parser_field_buff_partial_data_o'.
-# ** Warning: (vsim-3722) /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_top.v(566): [TFMPC] - Missing connection for port 'parser_field_buff_partial_len_o'.
-# ** Warning: (vsim-3722) /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_extraction_top.v(566): [TFMPC] - Missing connection for port 'parser_field_buff_partial_valid_o'.
-# ** Warning: (vsim-3015) /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_core.v(336): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'rdaddr_i'. The port definition is at: /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_action_ram_wr.v(73).
-#         Region: /sdn_parser_tb/parser_block/parser_block/pqsdn_action_ram_wr_block
-# ** Warning: (vsim-3015) /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/sdn_parser_core.v(370): [PCDPC] - Port size (64 or 64) does not match connection size (55) for port 'rddata_i'. The port definition is at: /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam_wr.v(72).
-#         Region: /sdn_parser_tb/parser_block/parser_block/pqsdn_cam_wr_block
-# ** Warning: (vsim-3015) /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam_wr.v(270): [PCDPC] - Port size (55 or 55) does not match connection size (64) for port 'rddata_b_i'. The port definition is at: /home/mahesh/paraqum/repos/sdn_parser_complete/work/../src/verilog/pqsdn_cam_new.v(63).
-#         Region: /sdn_parser_tb/parser_block/parser_block/pqsdn_cam_wr_block/pqsdn_lookup_table
-# Loading /home/mahesh/paraqum/repos/sdn_parser_complete/work/../sim/libdpic.so
+# ** Warning: (vsim-3015) ../sim/sdn_parser_tb.sv(666): [PCDPC] - Port size (512 or 512) does not match connection size (1) for port 'parser_axis_tuple_tdata_o'. The port definition is at: /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_top.v(156).
+#         Region: /sdn_parser_tb/parser_top_block
+# ** Warning: (vsim-3015) ../sim/sdn_parser_tb.sv(666): [PCDPC] - Port size (64 or 64) does not match connection size (1) for port 'parser_axis_tuple_tkeep_o'. The port definition is at: /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_top.v(157).
+#         Region: /sdn_parser_tb/parser_top_block
+# ** Warning: (vsim-3017) /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_extraction_top.v(634): [TFMPC] - Too few port connections. Expected 33, found 30.
+#         Region: /sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_block
+# ** Warning: (vsim-3722) /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_extraction_top.v(634): [TFMPC] - Missing connection for port 'parser_field_buff_partial_data_o'.
+# ** Warning: (vsim-3722) /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_extraction_top.v(634): [TFMPC] - Missing connection for port 'parser_field_buff_partial_len_o'.
+# ** Warning: (vsim-3722) /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_extraction_top.v(634): [TFMPC] - Missing connection for port 'parser_field_buff_partial_valid_o'.
+# ** Warning: (vsim-3015) /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_core.v(382): [PCDPC] - Port size (8 or 8) does not match connection size (9) for port 'rdaddr_i'. The port definition is at: /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/pqsdn_action_ram_wr.v(73).
+#         Region: /sdn_parser_tb/parser_top_block/parser_core_block/pqsdn_action_ram_wr_block
+# ** Warning: (vsim-3015) /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/sdn_parser_core.v(416): [PCDPC] - Port size (64 or 64) does not match connection size (55) for port 'rddata_i'. The port definition is at: /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/pqsdn_cam_wr.v(72).
+#         Region: /sdn_parser_tb/parser_top_block/parser_core_block/pqsdn_cam_wr_block
+# ** Warning: (vsim-3015) /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/pqsdn_cam_wr.v(270): [PCDPC] - Port size (55 or 55) does not match connection size (64) for port 'rddata_b_i'. The port definition is at: /home/mahesh/paraqum/repos/P4PQ/work/../src/verilog/pqsdn_cam_new.v(63).
+#         Region: /sdn_parser_tb/parser_top_block/parser_core_block/pqsdn_cam_wr_block/pqsdn_lookup_table
+# Loading /home/mahesh/paraqum/repos/P4PQ/work/../sim/libdpic.so
 # ** Warning: (vsim-8634) Code was not compiled with coverage options.
 # CamConfProg
 # OpenFile
@@ -1110,59 +788,154 @@ do ../script/run_vsim.tcl
 # WORD_512 : 68a828246261e4a8b64f5a9c81000267080045000033cf110000fe11bba9ca45ced0ca45cea2084b084b001f000048ab001389f82a3e1f644f00020002001000
 # FRAME : 030001009b000000
 # WORD_512 : 030001009b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-# ** Note: $finish    : ../sim/sdn_parser_tb.sv(217)
+# ** Note: $finish    : ../sim/sdn_parser_tb.sv(221)
 #    Time: 16444 ns  Iteration: 0  Instance: /sdn_parser_tb
 # 1
-# Break in Module sdn_parser_tb at ../sim/sdn_parser_tb.sv line 217
+# Break in Module sdn_parser_tb at ../sim/sdn_parser_tb.sv line 221
 # Simulation Breakpoint: 1
-# Break in Module sdn_parser_tb at ../sim/sdn_parser_tb.sv line 217
+# Break in Module sdn_parser_tb at ../sim/sdn_parser_tb.sv line 221
 # MACRO ./../script/run_vsim.tcl PAUSED at line 38
 add wave -position insertpoint  \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/HEAD_FIELD_LEN_W} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/clk} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/resetn} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/ext_unit_en_i} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/ext_unit_flush_i} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/ext_unit_header_valid_i} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/ext_unit_header_id_i} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/ext_unit_data_valid_i} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/ext_unit_data_i} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/ext_unit_data_count_i} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/ext_unit_word_addr_i} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/ext_unit_addr_start_i} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/ext_unit_field_info_i} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/ext_unit_addr_finish_o} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/ext_unit_field_offset_o} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/ext_unit_field_data_o} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/ext_unit_field_len_o} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/ext_unit_field_data_valid_o} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/ext_unit_hold_en_i} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/ext_unit_hold_en_o} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/ext_unit_dylen_en_o} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/ext_unit_dylen_o} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/ext_unit_dylen_en_i} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/ext_unit_dylen_i} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/ext_unit_lookup_en_o} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/ext_unit_lookup_o} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/ext_unit_lookup_en_i} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/ext_unit_lookup_i} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/ext_unit_ext_finished_o}
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/clk \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/resetn \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/pkt_buf_rd_en_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/pkt_buf_rd_addr_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/pkt_buf_rd_data_i \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/pkt_wr_ptr_buf_i \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/pkt_rd_ptr_buf_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_pkt_id_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_pkt_valid_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_pkt_err_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_field_buff_data_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_field_buff_len_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_field_buff_valid_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_ext_buff_data_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_ext_buff_len_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_ext_buff_valid_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_offset_buff_data_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_offset_buff_len_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_offset_buff_valid_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/programming \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/action_ram_rd_data_en_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/action_ram_rd_data_addr_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/action_ram_rd_data_i \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/action_ram_rd_len_i \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/cam_lookup_en_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/cam_lookup_data_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/cam_lookup_addr_i \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/cam_lookup_value_i \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/prog_en \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/cam_prog_en \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_exception_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_flush \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_data_word \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_data_valid \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_data_count \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_start_addr \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_finish_addr_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_action_field \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_action_length \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_action_valid \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_field_buff_data_in \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_field_buff_len_in \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_field_buff_data_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_field_buff_len_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_ext_buff_data_in \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_ext_buff_len_in \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_ext_buff_data_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_ext_buff_len_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_lookup_value \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_lookup_valid \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_lookup_value_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_lookup_valid_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_dylen_value \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_dylen_valid \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_dylen_value_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_dylen_valid_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_hold_en_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_head_finished_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/state_prs_ext_core
 add wave -position insertpoint  \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/flag_enable} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/flag_pkt_hdr_len} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/flag_dyn_fld_len} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/flag_lookup} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/flag_extract} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/flag_dynamic} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/field_length_original} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/field_length} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/ext_unit_field_data_shifted} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/ext_unit_field_within_word} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/ext_unit_field_data} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/v_ext_length} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/v_field_length} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/v_hold_on} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/v_data} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/v_offset} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/v_ext_unit_field_offset} \
-{sim:/sdn_parser_tb/parser_block/parser_block/ext_top_block/ext_core_block/genblk2[0]/unit1/v_ext_unit_addr_start}
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/clk \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/resetn \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/pkt_buf_rd_en_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/pkt_buf_rd_addr_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/pkt_buf_rd_data_i \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/pkt_wr_ptr_buf_i \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/pkt_rd_ptr_buf_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_pkt_id_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_pkt_valid_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_pkt_err_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_field_buff_data_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_field_buff_len_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_field_buff_valid_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_ext_buff_data_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_ext_buff_len_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_ext_buff_valid_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_offset_buff_data_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_offset_buff_len_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_offset_buff_valid_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/programming \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/action_ram_rd_data_en_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/action_ram_rd_data_addr_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/action_ram_rd_data_i \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/action_ram_rd_len_i \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/cam_lookup_en_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/cam_lookup_data_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/cam_lookup_addr_i \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/cam_lookup_value_i \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/prog_en \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/cam_prog_en \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_exception_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_flush \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_data_word \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_data_valid \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_data_count \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_start_addr \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_finish_addr_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_action_field \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_action_length \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_action_valid \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_field_buff_data_in \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_field_buff_len_in \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_field_buff_data_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_field_buff_len_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_ext_buff_data_in \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_ext_buff_len_in \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_ext_buff_data_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_ext_buff_len_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_lookup_value \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_lookup_valid \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_lookup_value_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_lookup_valid_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_dylen_value \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_dylen_valid \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_dylen_value_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_dylen_valid_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_hold_en_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_head_finished_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/state_prs_ext_core
+add wave -position insertpoint  \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/clk \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/resetn \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/pkt_buf_rd_en_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/pkt_buf_rd_addr_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/pkt_buf_rd_data_i \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/pkt_wr_ptr_buf_i \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/pkt_rd_ptr_buf_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/action_ram_rd_data_en_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/action_ram_rd_data_addr_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/action_ram_rd_data_i \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/action_ram_rd_len_i \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/cam_lookup_en_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/cam_lookup_data_o \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/cam_lookup_addr_i \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/cam_lookup_value_i \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_lookup_value_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_lookup_valid_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_hold_en_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/ext_core_head_finished_out \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/state_prs_ext_core
+add wave -position insertpoint  \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_field_buff_data \
+sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_field_buff_len
