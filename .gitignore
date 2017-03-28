@@ -17,4 +17,4 @@ sim/san/load_buffers.o
 sim/san/load_flag.o
 sim/san/load_output_buffer.o
 sim/san/load_prefetcher.o
-
+script/CC_Makefile
