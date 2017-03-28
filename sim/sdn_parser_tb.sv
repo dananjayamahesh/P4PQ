@@ -48,100 +48,109 @@ module sdn_parser_tb;
     import tb_defs::*;
     import dpic_if::*;
 
+    parameter       FIELD_BUFFER_WIDTH          =   4096;
+    parameter       OFFSET_BUFFER_WIDTH         =   4096;
+    parameter       EXTRACTION_BUFFER_WIDTH     =   4096;           
+    parameter       HDR_SEQ_BUFFER_WIDTH        =   1024;
 
 //---------------------------------------------------------------------------------------------------------------------
 // wires and registers
 //---------------------------------------------------------------------------------------------------------------------
     
-    reg                                         clk;
-    reg                                         resetn;    
+    reg                                             clk;
+    reg                                             resetn;    
     //axis rx interface
-    wire                                        s_axis_rx_tvalid_i;
-    wire            [DATA_W-1:0]                s_axis_rx_tdata_i;
-    wire            [KEEP_W-1:0]                s_axis_rx_tkeep_i;
-    wire                                        s_axis_rx_tlast_i;
-    wire                                        s_axis_rx_tready_o;
-
-    wire                                        s_actconf_axis_rx_tvalid_i;
-    wire            [ACT_CONF_DATA_W-1:0]       s_actconf_axis_rx_tdata_i;
-    wire            [ACT_CONF_KEEP_W-1:0]       s_actconf_axis_rx_tkeep_i;
-    wire                                        s_actconf_axis_rx_tlast_i;
-    wire                                        s_actconf_axis_rx_tready_o;
-//CAM
-    wire                                        s_camconf_axis_rx_tvalid_i;
-    wire            [CAM_CONF_DATA_W-1:0]       s_camconf_axis_rx_tdata_i;
-    wire            [CAM_CONF_KEEP_W-1:0]       s_camconf_axis_rx_tkeep_i;
-    wire                                        s_camconf_axis_rx_tlast_i;
-    wire                                        s_camconf_axis_rx_tready_o;
-    //axis tx interface
-    wire                                        m_axis_tx_tvalid_o;
-    wire            [DATA_W-1:0]                m_axis_tx_tdata_o;
-    wire            [KEEP_W-1:0]                m_axis_tx_tkeep_o;
-    wire                                        m_axis_tx_tlast_o;
-    reg                                         m_axis_tx_tready_i;
+    wire                                            s_axis_rx_tvalid_i;
+    wire            [DATA_W-1:0]                    s_axis_rx_tdata_i;
+    wire            [KEEP_W-1:0]                    s_axis_rx_tkeep_i;
+    wire                                            s_axis_rx_tlast_i;
+    wire                                            s_axis_rx_tready_o;
     
-    wire        [PKT_NUM_W-1:0]                 parser_pkt_id_o;
-    wire                                        parser_pkt_valid_o;
-    wire                                        parser_pkt_err_o;                                 
-    wire        [PRS_FIELD_BUFF_DATA_W-1:0]     parser_field_buff_data_o;
-    wire        [PRS_FIELD_BUFF_ADDR_W-1:0]     parser_field_buff_len_o;
-    wire                                        parser_field_b;
-    wire        [PRS_EXT_BUFF_DATA_W-1:0]       parser_ext_buff_data_o;
-    wire        [PRS_EXT_BUFF_ADDR_W-1:0]       parser_ext_buff_len_o;
-    wire                                        parser_ext_b;
-    wire        [PRS_OFFSET_BUFF_DATA_W-1:0]    parser_offset_buff_data_o;
-    wire      [PRS_OFFSET_BUFF_ADDR_W-1:0]      parser_offset_buff_len_o;
-    wire                                        parser_offset_buff_valid_o;
+    wire                                            s_actconf_axis_rx_tvalid_i;
+    wire            [ACT_CONF_DATA_W-1:0]           s_actconf_axis_rx_tdata_i;
+    wire            [ACT_CONF_KEEP_W-1:0]           s_actconf_axis_rx_tkeep_i;
+    wire                                            s_actconf_axis_rx_tlast_i;
+    wire                                            s_actconf_axis_rx_tready_o;
+//CAM
+    wire                                            s_camconf_axis_rx_tvalid_i;
+    wire            [CAM_CONF_DATA_W-1:0]           s_camconf_axis_rx_tdata_i;
+    wire            [CAM_CONF_KEEP_W-1:0]           s_camconf_axis_rx_tkeep_i;
+    wire                                            s_camconf_axis_rx_tlast_i;
+    wire                                            s_camconf_axis_rx_tready_o;
+    //axis tx interface
+    wire                                            m_axis_tx_tvalid_o;
+    wire            [DATA_W-1:0]                    m_axis_tx_tdata_o;
+    wire            [KEEP_W-1:0]                    m_axis_tx_tkeep_o;
+    wire                                            m_axis_tx_tlast_o;
+    reg                                             m_axis_tx_tready_i;
+        
+    wire        [PKT_NUM_W-1:0]                     parser_pkt_id_o;
+    wire                                            parser_pkt_valid_o;
+    wire                                            parser_pkt_err_o;                                 
+    wire        [PRS_FIELD_BUFF_DATA_W-1:0]         parser_field_buff_data_o;
+    wire        [PRS_FIELD_BUFF_ADDR_W-1:0]         parser_field_buff_len_o;
+    wire                                            parser_field_b;
+    wire        [PRS_EXT_BUFF_DATA_W-1:0]           parser_ext_buff_data_o;
+    wire        [PRS_EXT_BUFF_ADDR_W-1:0]           parser_ext_buff_len_o;
+    wire                                            parser_ext_b;
+    wire        [PRS_OFFSET_BUFF_DATA_W-1:0]        parser_offset_buff_data_o;
+    wire      [PRS_OFFSET_BUFF_ADDR_W-1:0]          parser_offset_buff_len_o;
+    wire                                            parser_offset_buff_valid_o;
     //packetizer interface
-    wire                                        parser_axis_tx_tvalid_o;
-    wire          [PRS_TX_DATA_W-1:0]           parser_axis_tx_tdata_o;
-    wire          [PRS_TX_KEEP_W-1:0]           parser_axis_tx_tkeep_o;
-    wire                                        parser_axis_tx_tlast_o;
-    reg                                         parser_axis_tx_tready_i;
+    wire                                            parser_axis_tx_tvalid_o;
+    wire          [PRS_TX_DATA_W-1:0]               parser_axis_tx_tdata_o;
+    wire          [PRS_TX_KEEP_W-1:0]               parser_axis_tx_tkeep_o;
+    wire                                            parser_axis_tx_tlast_o;
+    reg                                             parser_axis_tx_tready_i;
 
 //---------------------------------------------------------------------------------------------------------------------  
 // internal registers and wires
 //---------------------------------------------------------------------------------------------------------------------
     
-    reg                                      ram_en;
-    reg             [KEEP_W-1:0]             ram_wren;
-    reg             [ADDR_W-1:0]             ram_wraddr;
-    reg             [DATA_W-1:0]             ram_wrdata;
-    reg             [ADDR_W-1:0]             ram_wrptr;
-    reg             [ADDR_W-1:0]             ram_rdptr;
-    reg             [ADDR_W-1:0]             buf_wr_ptr;  //local to the verilog module to convert to axis
-    wire            [ADDR_W-1:0]             rd_wr_diff;
+    reg                                             ram_en;
+    reg             [KEEP_W-1:0]                    ram_wren;
+    reg             [ADDR_W-1:0]                    ram_wraddr;
+    reg             [DATA_W-1:0]                    ram_wrdata;
+    reg             [ADDR_W-1:0]                    ram_wrptr;
+    reg             [ADDR_W-1:0]                    ram_rdptr;
+    reg             [ADDR_W-1:0]                    buf_wr_ptr;  //local to the verilog module to convert to axis
+    wire            [ADDR_W-1:0]                    rd_wr_diff;
 
     ///ACTION CONF MEM
-    reg                                      actconf_ram_en;
-    reg             [ACT_CONF_KEEP_W-1:0]    actconf_ram_wren;
-    reg             [ACT_CONF_ADDR_W-1:0]    actconf_ram_wraddr;
-    reg             [ACT_CONF_DATA_W-1:0]    actconf_ram_wrdata;
-    reg             [ACT_CONF_ADDR_W-1:0]    actconf_ram_wrptr;
-    reg             [ACT_CONF_ADDR_W-1:0]    actconf_ram_rdptr;
-    reg             [ACT_CONF_ADDR_W-1:0]    actconf_buf_wr_ptr;  //local to the verilog module to convert to axis
-    wire            [ACT_CONF_ADDR_W-1:0]    actconf_rd_wr_diff;
+    reg                                             actconf_ram_en;
+    reg             [ACT_CONF_KEEP_W-1:0]           actconf_ram_wren;
+    reg             [ACT_CONF_ADDR_W-1:0]           actconf_ram_wraddr;
+    reg             [ACT_CONF_DATA_W-1:0]           actconf_ram_wrdata;
+    reg             [ACT_CONF_ADDR_W-1:0]           actconf_ram_wrptr;
+    reg             [ACT_CONF_ADDR_W-1:0]           actconf_ram_rdptr;
+    reg             [ACT_CONF_ADDR_W-1:0]           actconf_buf_wr_ptr;  //local to the verilog module to convert to axis
+    wire            [ACT_CONF_ADDR_W-1:0]           actconf_rd_wr_diff;
 
 //CAM 
-    reg                                      camconf_ram_en;
-    reg             [CAM_CONF_KEEP_W-1:0]    camconf_ram_wren;
-    reg             [CAM_CONF_ADDR_W-1:0]    camconf_ram_wraddr;
-    reg             [CAM_CONF_DATA_W-1:0]    camconf_ram_wrdata;
-    reg             [CAM_CONF_ADDR_W-1:0]    camconf_ram_wrptr;
-    reg             [CAM_CONF_ADDR_W-1:0]    camconf_ram_rdptr;
-    reg             [CAM_CONF_ADDR_W-1:0]    camconf_buf_wr_ptr;  //local to the verilog module to convert to axis
-    wire            [CAM_CONF_ADDR_W-1:0]    camconf_rd_wr_diff;
+    reg                                             camconf_ram_en;
+    reg             [CAM_CONF_KEEP_W-1:0]           camconf_ram_wren;
+    reg             [CAM_CONF_ADDR_W-1:0]           camconf_ram_wraddr;
+    reg             [CAM_CONF_DATA_W-1:0]           camconf_ram_wrdata;
+    reg             [CAM_CONF_ADDR_W-1:0]           camconf_ram_wrptr;
+    reg             [CAM_CONF_ADDR_W-1:0]           camconf_ram_rdptr;
+    reg             [CAM_CONF_ADDR_W-1:0]           camconf_buf_wr_ptr;  //local to the verilog module to convert to axis
+    wire            [CAM_CONF_ADDR_W-1:0]           camconf_rd_wr_diff;
 
 
 
 
-    reg             [DATA_W-1 : 0]          tmp_data_512;
-    reg             [63:0]                  frame_origin;
-    reg             [63:0]                  frame_edited;
+    reg             [DATA_W-1 : 0]                  tmp_data_512;
+    reg             [63:0]                          frame_origin;
+    reg             [63:0]                          frame_edited;
+    
+    reg                                             programming;
+    
+    wire                                            ext_core_exception;
 
-    reg                                     programming;
-
-    wire                                    ext_core_exception;
+    reg             [FIELD_BUFFER_WIDTH-1:0]        field_buffer;
+    reg             [OFFSET_BUFFER_WIDTH-1:0]       offset_buffer;
+    reg             [EXTRACTION_BUFFER_WIDTH-1:0]   extraction_buffer;
+    reg             [HDR_SEQ_BUFFER_WIDTH-1:0]      hdr_seq_buffer;
 
 //---------------------------------------------------------------------------------------------------------------------
 // Instantiate the Design Under Test (DUT)
@@ -204,6 +213,8 @@ module sdn_parser_tb;
         
         #(CLK*2);
 
+        //c++ model
+            parse();
         //fork
             program_cam();
         //join
@@ -347,7 +358,8 @@ module sdn_parser_tb;
         
         //////////////////////////////////////////////////////////////////////////
 
-        svReadPkts(MAX_PKT_HOLD, error);                                    //1.read packet
+        svReadPkts(MAX_PKT_HOLD, error);      
+                                      //1.read packet
         $display("********************************FIRST TIME");
         if (error != 0) begin
             $display("Error at svReadPkts : %2d", error);
@@ -461,6 +473,57 @@ module sdn_parser_tb;
             //svResultQueuePop();         //remove the last data hold
         end
     endtask : load_packets
+
+    task     parse();
+
+        automatic longint unsigned field_buffer_word;
+        automatic longint unsigned offset_queue_word;
+        automatic longint unsigned ext_queue_word;
+        automatic longint unsigned hdr_Seq_queue_word;
+
+        svRunParser();
+
+        for(int unsigned j=0; j< 384 ; j++)   begin
+            svGet_field_buffer_word(field_buffer_word);
+            $display("field buffer word : %x", field_buffer_word);
+            field_buffer[(j%64)*64 +: 64]   =   field_buffer_word;
+
+            if((j+1)%64 == 0) begin
+                $display("field buffer : %x", field_buffer);
+            end
+        end
+
+        for(int unsigned j=0; j< 384 ; j++)   begin
+            svGet_offset_queue_word(offset_queue_word);
+            $display("offset queue word : %x", offset_queue_word);
+            offset_buffer[(j%64)*64 +: 64]   =   offset_queue_word;
+
+            if((j+1)%64 == 0) begin
+                $display("offset buffer : %x", offset_buffer);
+            end
+        end
+
+        for(int unsigned j=0; j< 384 ; j++)   begin
+            svGet_ext_queue_word(ext_queue_word);
+            $display("extraction queue word : %x", ext_queue_word);
+            extraction_buffer[(j%64)*64 +: 64]   =   ext_queue_word;
+
+            if((j+1)%64 == 0) begin
+                $display("extraction buffer : %x", extraction_buffer);
+            end
+        end
+
+        for(int unsigned j=0; j< 96 ; j++)   begin
+            svGet_hdr_Seq_queue_word(hdr_Seq_queue_word);
+            $display("header sequence word : %x", hdr_Seq_queue_word);
+            hdr_seq_buffer[(j%16)*64 +: 64]   =   hdr_Seq_queue_word;
+
+            if((j+1)%16 == 0) begin
+                $display("header sequence buffer : %x", hdr_seq_buffer);
+            end
+        end
+
+    endtask : parse
 
 
 axis_convertor
