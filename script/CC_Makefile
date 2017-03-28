@@ -10,14 +10,14 @@ GCC_FLAGS := -Wall -fPIC $(INCDIR_PATH)
 LIB := $(SRC_PATH)/libdpic.so
 
 OBJS += \
-		$(SRC_PATH)/san/extract_prefetcher.o \
+		$(SRC_PATH)/san/Parser1.o \
+                $(SRC_PATH)/san/extract_prefetcher.o \
 		$(SRC_PATH)/san/load_buffers.o \
 		$(SRC_PATH)/san/load_flag.o \
 		$(SRC_PATH)/san/load_output_buffer.o \
 		$(SRC_PATH)/san/load_prefetcher.o \
 		$(SRC_PATH)/san/PacketReaderSan.o \
 		$(SRC_PATH)/san/PktPreProcessorSan.o \
-		$(SRC_PATH)/san/Parser.o \
 		$(SRC_PATH)/ActConfProg.o \
 		$(SRC_PATH)/CamConfProg.o \
 		$(SRC_PATH)/CommonFuncs.o \
