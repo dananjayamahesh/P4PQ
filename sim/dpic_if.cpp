@@ -2,6 +2,7 @@
 
 #include "header/AllHeaders.h"
 #include "san/headers/Parser.h"
+#include "san/headers/Parser1.h"
 
 #include <iostream>
 #include <fstream>
@@ -24,7 +25,7 @@ PacketReader *pkt_reader;
 PktPreProcessor *pkt_preprocessor;
 ActConfProg *act_conf_programmer;
 CamConfProg *cam_conf_programmer;
-Parser *myparser;
+Parser1 *myparser;
 //Pq_Hw_GTPDecoder *gtp_decoder;
 
 bool rd_pcap_file = false;
