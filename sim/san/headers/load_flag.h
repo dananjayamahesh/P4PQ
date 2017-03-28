@@ -6,6 +6,7 @@
  */
 
 #include <iostream>
+#include <string>
 #include <string.h>
 #include <bitset>
 #include <stdio.h>
@@ -14,8 +15,6 @@
 #define FLAG_WIDTH					1
 #define FIELD_LENGTH_ENTRY_WIDTH	9
 
-using namespace std;
+int load_flag(std::string ram_entry, int index);
 
-int load_flag(string ram_entry, int index);
-
-bitset<FIELD_LENGTH_ENTRY_WIDTH> load_length(string ram_entry, int index);
+std::bitset<FIELD_LENGTH_ENTRY_WIDTH> load_length(std::string ram_entry, int index);

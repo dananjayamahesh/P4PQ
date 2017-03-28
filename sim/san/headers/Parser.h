@@ -34,8 +34,6 @@
 #define FIELD_LENGTH_ENTRY_WIDTH	9
 #define NEXT_HEADERTYPE_ENTRY_WIDTH	24
 
-using namespace std;
-
 class Parser {
 
 	public:

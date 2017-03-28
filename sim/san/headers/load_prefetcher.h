@@ -13,6 +13,4 @@
 
 #define PREFETCH_WORD_SIZE 			512
 
-using namespace std;
-
-bitset<PREFETCH_WORD_SIZE> load_prefetcher(packet *p);
+std::bitset<PREFETCH_WORD_SIZE> load_prefetcher(packet *p);

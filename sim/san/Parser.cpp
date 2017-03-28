@@ -1,15 +1,15 @@
 #include "headers/Parser.h"
 
-queue<uint64_t> field_buffer;
-queue<uint64_t> offset_queue;
-queue<uint64_t>	field_extracted;
-queue<uint64_t>	header_queue;
+std::queue<uint64_t> field_buffer;
+std::queue<uint64_t> offset_queue;
+std::queue<uint64_t>	field_extracted;
+std::queue<uint64_t>	header_queue;
 
 void Parser::run(){
     int 						i_ret;
     PacketReaderSan 			*pkt_reader;                                    
 	PktPreProcessorSan 			*pkt_preprocessor;
-    bitset<PREFETCH_WORD_SIZE> 	prefetched_frame;								//internal buffer
+    std::bitset<PREFETCH_WORD_SIZE> 	prefetched_frame;								//internal buffer
     char 						* ptr;
 
     pkt_reader 													= 	new PacketReaderSan();
@@ -30,16 +30,16 @@ void Parser::run(){
     	int 						header_start_pointer 		= 0;			//keep the offset to header starting point from packet beginning
 
     	int 						output_buffer_pointer 		= 0;			//keep the starting point to write to output buffer
-    	bitset<OUTPUT_BUFFER_SIZE> 	output_buffer;								//parsed field vector
+    	std::bitset<OUTPUT_BUFFER_SIZE> 	output_buffer;								//parsed field vector
 
 		int 						offset_buffer_pointer 		= 0;
-		bitset<OFFSET_BUFFER_SIZE>	offset_buffer;								//keep field offsets
+		std::bitset<OFFSET_BUFFER_SIZE>	offset_buffer;								//keep field offsets
 
 		int 						ext_buffer_pointer 			= 0;			//keep offset for extracted fields in extraction buffer
-		bitset<EXTRACT_BUFFER_SIZE>	ext_buffer;
+		std::bitset<EXTRACT_BUFFER_SIZE>	ext_buffer;
 
 		int 						hdr_seq_buf_pointer			= 0;			//keep the pointer for header sequence buffer
-		bitset<HDR_SEQ_BUFFER_SIZE>	hdr_seq_buffer;
+		std::bitset<HDR_SEQ_BUFFER_SIZE>	hdr_seq_buffer;
         
         rd_pktSan 						rp;                                      	//struct PacketReader.h
         
@@ -59,8 +59,8 @@ void Parser::run(){
 
     	loop:
 
-    	string ram_entry;
-    	ifstream myfile ("../sim/san/current_state_ram.txt");
+    	std::string ram_entry;
+    	std::ifstream myfile ("../sim/san/current_state_ram.txt");
 		if (myfile.is_open()){
 			int current_index = 1;												//current search entry
 		    while ( getline (myfile,ram_entry) ){
@@ -74,23 +74,23 @@ void Parser::run(){
 		    		//cout << "header id " << entry_no << endl;
 		    		update_hdr_seq(entry_no, &hdr_seq_buffer, &hdr_seq_buf_pointer);
 
-		    		bitset<32> header_length;										//keep header length
-		    		bitset<24> next_type;											//keep the field for next headertype
+		    		std::bitset<32> header_length;										//keep header length
+		    		std::bitset<24> next_type;											//keep the field for next headertype
 
-		    		bitset<FIELD_OFFSET_WIDTH> field_offset[MAX_FIELDS_PER_HEADER];	//keep offset of each field
+		    		std::bitset<FIELD_OFFSET_WIDTH> field_offset[MAX_FIELDS_PER_HEADER];	//keep offset of each field
 
-		    		bitset<1> enable_flag[MAX_FIELDS_PER_HEADER];
-		    		bitset<1> header_length_flag[MAX_FIELDS_PER_HEADER];
-		    		bitset<1> next_field_length_flag[MAX_FIELDS_PER_HEADER];
-		    		bitset<1> next_headertype_flag[MAX_FIELDS_PER_HEADER];
-		    		bitset<1> extract_flag[MAX_FIELDS_PER_HEADER];
-		    		bitset<1> dynamic_length_flag[MAX_FIELDS_PER_HEADER];
-		    		bitset<FIELD_LENGTH_ENTRY_WIDTH> field_length[MAX_FIELDS_PER_HEADER];
+		    		std::bitset<1> enable_flag[MAX_FIELDS_PER_HEADER];
+		    		std::bitset<1> header_length_flag[MAX_FIELDS_PER_HEADER];
+		    		std::bitset<1> next_field_length_flag[MAX_FIELDS_PER_HEADER];
+		    		std::bitset<1> next_headertype_flag[MAX_FIELDS_PER_HEADER];
+		    		std::bitset<1> extract_flag[MAX_FIELDS_PER_HEADER];
+		    		std::bitset<1> dynamic_length_flag[MAX_FIELDS_PER_HEADER];
+		    		std::bitset<FIELD_LENGTH_ENTRY_WIDTH> field_length[MAX_FIELDS_PER_HEADER];
 
 		    		//header length entry
 		    		char temp_header_length[HEADER_LENGTH_ENTRY_WIDTH];
 				    strcpy(temp_header_length, ram_entry.substr(0 , HEADER_LENGTH_ENTRY_WIDTH).c_str());
-		    		header_length = bitset<32>(strtol(temp_header_length, & ptr, 2));
+		    		header_length = std::bitset<32>(strtol(temp_header_length, & ptr, 2));
 
 		    		//loop for each field
 			    	for(int field_id=0; field_id<MAX_FIELDS_PER_HEADER; field_id++){
@@ -108,13 +108,13 @@ void Parser::run(){
 				    		break;
 				    	}
 
-				    	field_offset[field_id] = (field_id == 0) ? bitset<FIELD_OFFSET_WIDTH>(header_start_pointer) : bitset<FIELD_OFFSET_WIDTH>((int)(field_offset[field_id - 1].to_ulong()) + (int)(field_length[field_id - 1].to_ulong()));	//absolute offset of the field
+				    	field_offset[field_id] = (field_id == 0) ? std::bitset<FIELD_OFFSET_WIDTH>(header_start_pointer) : std::bitset<FIELD_OFFSET_WIDTH>((int)(field_offset[field_id - 1].to_ulong()) + (int)(field_length[field_id - 1].to_ulong()));	//absolute offset of the field
 	
 				    	load_offset_buffer(entry_no, field_id, &offset_buffer, &offset_buffer_pointer, &field_offset[field_id]);	//load offset buffer
 
 				    	if((int)(header_length_flag[field_id].to_ulong()) == 1){					//if this field carries header length
 				    		load_header_length(&p, &header_length, &prefetched_frame, (int)(field_length[field_id].to_ulong()), (int)(field_offset[field_id].to_ulong()), &output_buffer, &output_buffer_pointer);
-				    		header_length = bitset<32>((int)(header_length.to_ulong())*HEADER_LENGTH_BIT_WORD);
+				    		header_length = std::bitset<32>((int)(header_length.to_ulong())*HEADER_LENGTH_BIT_WORD);
 				    		//cout << "header length " << endl;
 				    	}
 
@@ -136,12 +136,12 @@ void Parser::run(){
 				    	}
 
 				    	if(((int)(extract_flag[field_id].to_ulong())) == 1 && ((int)(dynamic_length_flag[field_id].to_ulong())) == 1){		//find dynamic last field length															    	
-		    				field_length[field_id] = bitset<FIELD_LENGTH_ENTRY_WIDTH>((int)(header_length.to_ulong()) - ((int)(field_offset[field_id].to_ulong()) - header_start_pointer));
+		    				field_length[field_id] = std::bitset<FIELD_LENGTH_ENTRY_WIDTH>((int)(header_length.to_ulong()) - ((int)(field_offset[field_id].to_ulong()) - header_start_pointer));
 		    				//cout << "dynamic length " << endl;
 		    			}
 
 		    			if((int)(header_length_flag[field_id].to_ulong()) == 0 && (int)(next_field_length_flag[field_id].to_ulong()) == 0 && (int)(next_headertype_flag[field_id].to_ulong()) == 0 && (int)(extract_flag[field_id].to_ulong()) == 0 && (int)(dynamic_length_flag[field_id].to_ulong()) == 0 && (field_offset[field_id].to_ulong() / PREFETCH_WORD_SIZE != field_offset[field_id - 1].to_ulong() / PREFETCH_WORD_SIZE) && field_id != 0){ //No extraction but field length go out of prefetcher range
-				     		cout << "prefetch field id" <<  field_id << endl;
+				     		//cout << "prefetch field id" <<  field_id << endl;
 				     		load_output_buffer(&output_buffer, &prefetched_frame, &output_buffer_pointer);
 				     		prefetched_frame 	=	load_prefetcher(&p);
 		    			}
@@ -151,10 +151,10 @@ void Parser::run(){
 		    		header_start_pointer += (int)(header_length.to_ulong());	//update header start pointer
 
 		    		//find next header
-			     	string next_header_ram_entry;
-			     	string next_header_lookup 	= 	(bitset<HEADER_ENTRY_WIDTH> (entry_no)).to_string() + next_type.to_string();
+			     	std::string next_header_ram_entry;
+			     	std::string next_header_lookup 	= 	(std::bitset<HEADER_ENTRY_WIDTH> (entry_no)).to_string() + next_type.to_string();
 			     	//cout <<"lookup value "<< next_header_lookup << endl;
-			     	ifstream myfile1 ("../sim/san/next_state_ram.txt");
+			     	std::ifstream myfile1 ("../sim/san/next_state_ram.txt");
 			     	if(myfile1.is_open()){
 			     		while(getline(myfile1, next_header_ram_entry)){
 			     			
@@ -179,7 +179,7 @@ void Parser::run(){
 
 			    		load_output_buffer(&output_buffer, &prefetched_frame, &output_buffer_pointer);	//Add to packet data queue
 
-			    		queue<uint64_t> empty_queue;
+			    		std::queue<uint64_t> empty_queue;
 			    		p.frame_set 	= 	empty_queue;		//empty the external buffer after packet
 			    		break;									//no further parsing: break and go to next packet
 			     	}

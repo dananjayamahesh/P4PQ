@@ -13,10 +13,10 @@ int load_flag(string ram_entry, int index){
 	return flag;
 }
 
-bitset<FIELD_LENGTH_ENTRY_WIDTH> load_length(string ram_entry, int index){
+std::bitset<FIELD_LENGTH_ENTRY_WIDTH> load_length(string ram_entry, int index){
 	char * 	ptr;
 	char 	temp_flag[FIELD_LENGTH_ENTRY_WIDTH];
 	strcpy(temp_flag, ram_entry.substr(index, FIELD_LENGTH_ENTRY_WIDTH).c_str());
-	bitset<FIELD_LENGTH_ENTRY_WIDTH> flag 	=	strtol(temp_flag, & ptr, 2);
+	std::bitset<FIELD_LENGTH_ENTRY_WIDTH> flag 	=	strtol(temp_flag, & ptr, 2);
 	return flag;
 }
