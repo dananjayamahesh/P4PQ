@@ -9,3 +9,12 @@ sim/dpic_if.o
 sim/libdpic.so
 log/sim_report.log
 log/*
+sim/san/PacketReaderSan.o
+sim/san/Parser.o
+sim/san/PktPreProcessorSan.o
+sim/san/extract_prefetcher.o
+sim/san/load_buffers.o
+sim/san/load_flag.o
+sim/san/load_output_buffer.o
+sim/san/load_prefetcher.o
+
