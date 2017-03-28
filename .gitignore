@@ -1,5 +1,4 @@
 work/*
-sim/san/Parser1.o
 sim/ActConfProg.o
 sim/CamConfProg.o
 sim/CommonFuncs.o
