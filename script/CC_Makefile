@@ -4,12 +4,20 @@ PWD := $(shell pwd)
 SRC_PATH := $(PWD)/../sim
 
 #have to edit the path of the questa sim
-INCDIR_PATH := -I$(SRC_PATH)/header/ -I/home/mahesh/tools/mentor/questa/questa_sim/include 
+INCDIR_PATH := -I$(SRC_PATH)/header/ -I/home/san/Questa/questa_sim/include
 GCC := g++
 GCC_FLAGS := -Wall -fPIC $(INCDIR_PATH)
 LIB := $(SRC_PATH)/libdpic.so
 
 OBJS += \
+		$(SRC_PATH)/san/extract_prefetcher.o \
+		$(SRC_PATH)/san/load_buffers.o \
+		$(SRC_PATH)/san/load_flag.o \
+		$(SRC_PATH)/san/load_output_buffer.o \
+		$(SRC_PATH)/san/load_prefetcher.o \
+		$(SRC_PATH)/san/PacketReaderSan.o \
+		$(SRC_PATH)/san/PktPreProcessorSan.o \
+		$(SRC_PATH)/san/Parser.o \
 		$(SRC_PATH)/ActConfProg.o \
 		$(SRC_PATH)/CamConfProg.o \
 		$(SRC_PATH)/CommonFuncs.o \

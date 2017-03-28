@@ -79,8 +79,32 @@ svGetPktHead(
 
 DPI_LINK_DECL DPI_DLLESPEC
 void
+svGet_ext_queue_word(
+    uint64_t* ext_queue_word);
+
+DPI_LINK_DECL DPI_DLLESPEC
+void
+svGet_field_buffer_word(
+    uint64_t* field_buffer_word);
+
+DPI_LINK_DECL DPI_DLLESPEC
+void
+svGet_hdr_Seq_queue_word(
+    uint64_t* hdr_Seq_queue_word);
+
+DPI_LINK_DECL DPI_DLLESPEC
+void
+svGet_offset_queue_word(
+    uint64_t* offset_queue_word);
+
+DPI_LINK_DECL DPI_DLLESPEC
+void
 svReadPkts(
     unsigned int svCount,
     unsigned int* svError);
+
+DPI_LINK_DECL DPI_DLLESPEC
+void
+svRunParser();
 
 #endif 

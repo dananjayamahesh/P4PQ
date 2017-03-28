@@ -54,5 +54,25 @@ package dpic_if;  ////////////////update the en of inforamtion element
         output longint unsigned svCamEntry
     );
 
+//-----------------------------------------------------------------
+
+    import "DPI-C" function void svRunParser();
+
+    import "DPI-C" function void svGet_field_buffer_word(
+        output longint unsigned field_buffer_word
+    );
+
+    import "DPI-C" function void svGet_offset_queue_word(
+        output longint unsigned offset_queue_word
+    );
+
+    import "DPI-C" function void svGet_ext_queue_word(
+        output longint unsigned ext_queue_word
+    );
+
+    import "DPI-C" function void svGet_hdr_Seq_queue_word(
+        output longint unsigned hdr_Seq_queue_word
+    );
+//-----------------------------------------------------------------
 
 endpackage : dpic_if

@@ -1,6 +1,7 @@
 #include "dpic_if.h"
 
 #include "header/AllHeaders.h"
+#include "san/headers/Parser.h"
 
 #include <iostream>
 #include <fstream>
@@ -23,10 +24,12 @@ PacketReader *pkt_reader;
 PktPreProcessor *pkt_preprocessor;
 ActConfProg *act_conf_programmer;
 CamConfProg *cam_conf_programmer;
+Parser *myparser;
 //Pq_Hw_GTPDecoder *gtp_decoder;
 
 bool rd_pcap_file = false;
 unsigned int rdpkt_count = 1;   //start from 1
+//myparser    =   new Parser();
 
 //std::queue<gtp_decoder_data> gtp_decoder_resultq;
 std::queue<packet> pktq;
@@ -215,4 +218,47 @@ svGetCamEntry(
 )
 {
     *svCamEntry = cam_conf_programmer->GetNextHeadWord();
+}
+
+DPI_LINK_DECL DPI_DLLESPEC
+void
+svRunParser()
+{
+    myparser->run();   
+}
+
+DPI_LINK_DECL DPI_DLLESPEC
+void
+svGet_field_buffer_word(
+    uint64_t* field_buffer_word
+)
+{
+    *field_buffer_word = myparser->get_field_buffer_word();
+}
+
+DPI_LINK_DECL DPI_DLLESPEC
+void
+svGet_offset_queue_word(
+    uint64_t* offset_queue_word
+)
+{
+    *offset_queue_word = myparser->get_offset_queue_word();
+}
+
+DPI_LINK_DECL DPI_DLLESPEC
+void
+svGet_ext_queue_word(
+    uint64_t* ext_queue_word
+)
+{
+    *ext_queue_word = myparser->get_ext_queue_word();
+}
+
+DPI_LINK_DECL DPI_DLLESPEC
+void
+svGet_hdr_Seq_queue_word(
+    uint64_t* hdr_Seq_queue_word
+)
+{
+    *hdr_Seq_queue_word = myparser->get_hdr_Seq_queue_word();
 }
