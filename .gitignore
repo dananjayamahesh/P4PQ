@@ -1,1 +1,11 @@
 work/*
+sim/ActConfProg.o
+sim/CamConfProg.o
+sim/CommonFuncs.o
+sim/PacketReader.o
+sim/PktPreProcessor.o
+sim/TSPrint.o
+sim/dpic_if.o
+sim/libdpic.so
+log/sim_report.log
+
