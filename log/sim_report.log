@@ -939,3 +939,4 @@ sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/state_prs_ex
 add wave -position insertpoint  \
 sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_field_buff_data \
 sim:/sdn_parser_tb/parser_top_block/parser_core_block/ext_top_block/parser_field_buff_len
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/mahesh/paraqum/repos/P4PQ/work/wave.do
