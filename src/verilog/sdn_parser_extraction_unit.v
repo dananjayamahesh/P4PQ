@@ -93,7 +93,7 @@ module sdn_parser_extraction_unit
 
     input           [PRS_OFFSET_W-1:0]                  ext_unit_addr_start_i, //Absolute
     input           [HEAD_FIELD_W-1:0]                  ext_unit_field_info_i,
-    output          [PRS_OFFSET_W-1:0]                  ext_unit_addr_finish_o,    
+    output          [PRS_OFFSET_W-1:0]                  ext_unit_addr_finish_o,   
 
     //
     output          [PRS_OFFSET_W-1:0]                  ext_unit_field_offset_o, 
@@ -116,7 +116,7 @@ module sdn_parser_extraction_unit
     input                                               ext_unit_lookup_en_i,
     input           [PRS_LOOKUP_W-1:0]                  ext_unit_lookup_i,
 
-    output                                              ext_unit_ext_finished_o,
+    output                                              ext_unit_ext_finished_o ,
 
 ////////////////////////////////////////////////////////////////////////////////////
 
@@ -124,14 +124,27 @@ module sdn_parser_extraction_unit
     input   [PRS_FIELD_BUFF_ADDR_W-1:0]                 parser_field_buff_len_i,
 
     output  [PRS_FIELD_BUFF_DATA_W-1:0]                 parser_field_buff_data_o,
-    output  [PRS_FIELD_BUFF_ADDR_W-1:0]                 parser_field_buff_len_o,
+    output  [PRS_FIELD_BUFF_ADDR_W-1:0]                 parser_field_buff_len_o//,
+    
 
 //Extraction Buffer Partial Output
+    /*
     input   [PRS_EXT_BUFF_DATA_W-1:0]                   parser_ext_buff_data_i,
     input   [PRS_EXT_BUFF_ADDR_W-1:0]                   parser_ext_buff_len_i,
 
     output  [PRS_EXT_BUFF_DATA_W-1:0]                   parser_ext_buff_data_o,
-    output  [PRS_EXT_BUFF_ADDR_W-1:0]                   parser_ext_buff_len_o
+    output  [PRS_EXT_BUFF_ADDR_W-1:0]                   parser_ext_buff_len_o//,
+    */
+
+    //Extraction Offset Buffer
+    //Extraction Buffer Partial Output
+    /*
+    input   [PRS_OFFSET_BUFF_DATA_W-1:0]                parser_offset_buff_data_i,
+    input   [PRS_OFFSET_BUFF_ADDR_W-1:0]                parser_offset_buff_len_i,
+
+    output  [PRS_OFFSET_BUFF_DATA_W-1:0]                parser_offset_buff_data_o,
+    output  [PRS_OFFSET_BUFF_ADDR_W-1:0]                parser_offset_buff_len_o
+    */
 
     ///////////////////////////////////////////////////////////////////////////////////
 
@@ -264,16 +277,23 @@ module sdn_parser_extraction_unit
 
     assign ext_unit_hold_en_o                   = data_overflow;
 
+
     assign ext_field_data_BUFF_WIDTH            = {{(PRS_FIELD_BUFF_DATA_W-PRS_DATA_W){1'b0}}, ext_unit_field_data_o};
+   /*
     assign ext_ext_data_BUFF_WIDTH              = {{(PRS_EXT_BUFF_DATA_W-PRS_DATA_W){1'b0}}, ext_unit_field_data_o};
 
     assign parser_ext_buff_data_o              = (flag_enable && flag_extract )? ((ext_unit_field_data_valid_o)?  ((ext_ext_data_BUFF_WIDTH << (PRS_EXT_BUFF_DATA_W-parser_field_buff_len_i-field_length)) | parser_ext_buff_data_i)  : parser_ext_buff_data_i) : parser_ext_buff_data_i; 
     assign parser_ext_buff_len_o               = (flag_enable && flag_extract)? ((ext_unit_field_data_valid_o)? (parser_ext_buff_len_i + field_length) : parser_ext_buff_len_i) : parser_ext_buff_len_i;
-
+*/
     assign parser_field_buff_data_o            = (flag_enable)? ((ext_unit_field_data_valid_o)?   ((ext_field_data_BUFF_WIDTH << (PRS_EXT_BUFF_DATA_W-parser_field_buff_len_i-field_length)) | parser_field_buff_data_i)  : parser_field_buff_data_i) : parser_field_buff_data_i; 
     assign parser_field_buff_len_o             = (flag_enable)? ((ext_unit_field_data_valid_o)? (parser_field_buff_len_i + field_length) : parser_field_buff_len_i) : parser_field_buff_len_i;
 
-always@(posedge clk)begin
+
+//Make the Address First
+//need
+  // assign parser_offset_buff_data_o [(ext_unit_data_count_i+EXT_UNIT_ID)*PRS_FIELD_BUFF_ADDR_W +: PRS_FIELD_BUFF_ADDR_W]  = (flag_enable)? ((ext_unit_field_data_valid_o) ? ext_unit_addr_start_i : 0) : 0;
+ //  assign parser_offset_buff_data_o          =  (flag_enable)? ((ext_unit_field_data_valid_o) ? ((ext_unit_addr_start_i << (1)) | parser_offset_buff_data_i): parser_offset_buff_data_i) : parser_offset_buff_data_i;
+always@(posedge clk)begin 
     if(!resetn)begin
         //Reset Logic
     end

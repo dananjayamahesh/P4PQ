@@ -185,16 +185,21 @@ wire    [ACTION_RAM_LEN_W-1:0]              ext_core_action_length;
 reg                                         ext_core_action_valid;
 
 //Newly Added
-reg   [PRS_FIELD_BUFF_DATA_W-1:0]         parser_field_buff_data_in;
-reg   [PRS_FIELD_BUFF_ADDR_W-1:0]         parser_field_buff_len_in;
-wire   [PRS_FIELD_BUFF_DATA_W-1:0]         parser_field_buff_data_out;
-wire   [PRS_FIELD_BUFF_ADDR_W-1:0]         parser_field_buff_len_out;
+reg     [PRS_FIELD_BUFF_DATA_W-1:0]         parser_field_buff_data_in;
+reg     [PRS_FIELD_BUFF_ADDR_W-1:0]         parser_field_buff_len_in;
+wire    [PRS_FIELD_BUFF_DATA_W-1:0]         parser_field_buff_data_out;
+wire    [PRS_FIELD_BUFF_ADDR_W-1:0]         parser_field_buff_len_out;
 
 //Extraction Buffer Partial Output
-reg   [PRS_EXT_BUFF_DATA_W-1:0]           parser_ext_buff_data_in;
-reg   [PRS_EXT_BUFF_ADDR_W-1:0]           parser_ext_buff_len_in;
-wire   [PRS_EXT_BUFF_DATA_W-1:0]           parser_ext_buff_data_out;
-wire   [PRS_EXT_BUFF_ADDR_W-1:0]           parser_ext_buff_len_out;
+reg     [PRS_EXT_BUFF_DATA_W-1:0]           parser_ext_buff_data_in;
+reg     [PRS_EXT_BUFF_ADDR_W-1:0]           parser_ext_buff_len_in;
+wire    [PRS_EXT_BUFF_DATA_W-1:0]           parser_ext_buff_data_out;
+wire    [PRS_EXT_BUFF_ADDR_W-1:0]           parser_ext_buff_len_out;
+
+reg     [PRS_OFFSET_BUFF_DATA_W-1:0]        parser_offset_buff_data_in;
+reg     [PRS_OFFSET_BUFF_ADDR_W-1:0]        parser_offset_buff_len_in;
+wire    [PRS_OFFSET_BUFF_DATA_W-1:0]        parser_offset_buff_data_out;
+wire    [PRS_OFFSET_BUFF_ADDR_W-1:0]        parser_offset_buff_len_out;
 
 reg     [PRS_LOOKUP_W-1:0]                  ext_core_lookup_value;
 reg                                         ext_core_lookup_valid;
@@ -227,7 +232,7 @@ reg                                         pkt_started             = 0;
 
 //Header Processing
 //reg         [PRS_COUNT_W-1:0]           pkt_head_count      = 0;
-//reg                                     pkt_head_started    = 0;
+//reg                                     pkt_head_started    = 0;+++
 //reg                                     pkt_head_finished   = 0; //Have to derived from core finished value
 
 //EXT CORE STATES AND VARIABLES
@@ -303,6 +308,14 @@ always@ (posedge clk)begin
         parser_field_buff_len_o     <= 0;
         parser_field_buff_valid_o   <= 0;
 
+        parser_ext_buff_data_o      <= 0;
+        parser_ext_buff_len_o       <= 0;
+        parser_ext_buff_valid_o     <= 0;
+
+        parser_offset_buff_data_o   <= 0;
+        parser_offset_buff_len_o    <= 0;
+        parser_offset_buff_valid_o  <= 0;
+
         pkt_rd_ptr_buf              <= 0;
         pkt_rd_ptr_buf_o            <= 0;
 
@@ -346,12 +359,19 @@ always@ (posedge clk)begin
 
                         parser_pkt_id_o             <= parser_pkt_id_o + 1;
 
+                        //Buffers to be filled
                         parser_field_buff_data_in   <= 0;
-                        parser_field_buff_data_in   <= 0;
+                        parser_field_buff_len_in    <= 0;
 
                         parser_ext_buff_data_in     <= 0;
-                        parser_ext_buff_data_in     <= 0;
-                        parser_ext_buff_valid_o     <= 0;
+                        parser_ext_buff_len_in      <= 0;
+
+                        parser_offset_buff_data_in   <= 0;
+                        parser_offset_buff_len_in    <= 0;
+
+                        //Check whether it is necessary
+                        //parser_ext_buff_valid_o     <= 0;
+                        //parser_field_buff_valid_o   <= 0;
                 end
 
                         parser_field_buff_data_o    <= 0;
@@ -382,9 +402,7 @@ always@ (posedge clk)begin
                             state_prs_ext_core          <= STATE_EXT_READ;
                             
                             //Buffer Prvious One into Fielfd Buffer
-                            //Push to Field Buffer
-                            
-                            
+                            //Push to Field Buffer                           
                      
                             ext_core_data_valid         <= 1'b0;
                             
@@ -402,20 +420,29 @@ always@ (posedge clk)begin
 
                         //Pipeline Split
 
-
                             if(ext_core_head_finished_out)begin //Finihsed one Head , Not real, virtual
 
                                 if(ext_core_pipe_split_count < ext_core_pipe_split_threshold)  begin //Check for Actual Header 
                                                   
-                                    ext_core_pipe_split_count <= ext_core_pipe_split_count +1 ;
+                                    ext_core_pipe_split_count   <= ext_core_pipe_split_count +1 ;
 
-                                    ext_core_lookup_value <= ext_core_lookup_value_out;
-                                    ext_core_lookup_valid <= ext_core_lookup_valid_out;
+                                    ext_core_lookup_value       <= ext_core_lookup_value_out;
+                                    ext_core_lookup_valid       <= ext_core_lookup_valid_out;
 
-                                    ext_core_dylen_value  <= ext_core_dylen_value_out;
-                                    ext_core_dylen_valid  <= ext_core_dylen_valid_out;
+                                    ext_core_dylen_value        <= ext_core_dylen_value_out;
+                                    ext_core_dylen_valid        <= ext_core_dylen_valid_out;
 
-                                    ext_core_start_addr <= ext_core_finish_addr_out;
+                                    ext_core_start_addr         <= ext_core_finish_addr_out;
+
+                                    //Extracted Data
+                                    parser_field_buff_data_in   <= parser_field_buff_data_out;
+                                    parser_field_buff_len_in    <= parser_field_buff_len_out;
+
+                                    parser_ext_buff_data_in     <= parser_ext_buff_data_out;
+                                    parser_ext_buff_len_in      <= parser_ext_buff_len_out;
+
+                                    parser_offset_buff_data_in     <= parser_offset_buff_data_out;
+                                    parser_offset_buff_len_in      <= parser_offset_buff_len_out;
 
                                     /*
                                     head_lookup_buf         <= ext_core_lookup_value_out;
@@ -426,8 +453,6 @@ always@ (posedge clk)begin
 
                                     head_addr_buf           <= ext_core_finish_addr_out;
                                     */
-
-
                                         //Edit to add pipeline stages
                                         //ext_core_head_finished_out 
                                 end
@@ -448,19 +473,28 @@ always@ (posedge clk)begin
                                             end
                 
                                             if(ext_core_dylen_valid_out)begin
-                                                head_lookup_buf         <= ext_core_dylen_value_out;
+                                                head_lookup_buf                 <= ext_core_dylen_value_out;
                                             end
                                             else begin
-                                                head_lookup_buf         <= ext_core_dylen_value_out;
+                                                head_lookup_buf                 <= ext_core_dylen_value_out;
                                             end  
                                             
-                                                head_addr_buf           <= ext_core_finish_addr_out;
+                                                head_addr_buf                   <= ext_core_finish_addr_out;
                         
-                                                head_lookup_buf         <= ext_core_lookup_value_out;
-                                                head_lookup_valid_buf   <= ext_core_lookup_valid_out;
+                                                head_lookup_buf                 <= ext_core_lookup_value_out;
+                                                head_lookup_valid_buf           <= ext_core_lookup_valid_out;
                         
-                                                head_lookup_buf         <= ext_core_dylen_value_out;
-                                                head_lookup_valid_buf   <= ext_core_dylen_valid_out;
+                                                head_lookup_buf                 <= ext_core_dylen_value_out;
+                                                head_lookup_valid_buf           <= ext_core_dylen_valid_out;
+
+                                                parser_field_buff_data_in       <= parser_field_buff_data_out;
+                                                parser_field_buff_len_in        <= parser_field_buff_len_out; 
+
+                                                parser_ext_buff_data_in         <= parser_ext_buff_data_out;
+                                                parser_ext_buff_len_in          <= parser_ext_buff_len_out;
+
+                                                parser_offset_buff_data_in      <= parser_offset_buff_data_out;
+                                                parser_offset_buff_len_in       <= parser_offset_buff_len_out;
                                 end // Check
                                         //+
                                     //No need of above
@@ -513,16 +547,27 @@ always@ (posedge clk)begin
                 ext_core_en                 <= 1'b0;
                 ext_core_flush              <= 1'b0;
 
-
                 parser_ext_buff_data_o      <= parser_ext_buff_data_out;
                 parser_ext_buff_len_o       <= parser_ext_buff_len_out;
-                parser_ext_buff_valid_o     <= 1'b1;
 
+                parser_field_buff_data_o    <= parser_field_buff_data_out;
+                parser_field_buff_len_o     <= parser_field_buff_len_out;
+
+                parser_offset_buff_data_o   <= parser_offset_buff_data_out;
+                parser_offset_buff_len_o    <= parser_offset_buff_len_out;
+
+
+                parser_ext_buff_valid_o     <= 1'b1;
+                parser_field_buff_valid_o   <= 1'b1;
 
                 //FILED BUFFER
-                parser_field_buff_data_o    <= 1;
+               /* parser_field_buff_data_o    <= 1;
                 parser_field_buff_len_o     <= 1;
                 parser_field_buff_valid_o   <= 1;
+                */
+
+                parser_ext_buff_valid_o     <= 0;
+                parser_field_buff_valid_o   <= 0;
 
             end
 
@@ -550,6 +595,14 @@ always@ (posedge clk)begin
                         parser_field_buff_data_o    <= 0;
                         parser_field_buff_len_o     <= 0;
                         parser_field_buff_valid_o   <= 0;
+
+                        parser_ext_buff_data_o      <= 0;
+                        parser_ext_buff_len_o       <= 0;
+                        parser_ext_buff_valid_o     <= 0;
+
+                        parser_offset_buff_data_o   <= 0;
+                        parser_offset_buff_len_o    <= 0;
+                        parser_offset_buff_valid_o  <= 0;
                 
                         pkt_rd_ptr_buf              <= 0;
                         pkt_rd_ptr_buf_o            <= 0;
@@ -612,10 +665,16 @@ ext_core_block
     .parser_field_buff_len_i (parser_field_buff_len_in),
     .parser_field_buff_data_o(parser_field_buff_data_out),
     .parser_field_buff_len_o (parser_field_buff_len_out),
+
     .parser_ext_buff_data_i  (parser_ext_buff_data_in),
     .parser_ext_buff_len_i   (parser_ext_buff_len_in),
     .parser_ext_buff_data_o  (parser_ext_buff_data_out),
     .parser_ext_buff_len_o   (parser_ext_buff_len_out),
+
+    .parser_offset_buff_data_i  (parser_offset_buff_data_in),
+    .parser_offset_buff_len_i   (parser_offset_buff_len_in),
+    .parser_offset_buff_data_o  (parser_offset_buff_data_out),
+    .parser_offset_buff_len_o   (parser_offset_buff_len_out),
 
     .ext_core_lookup_value_i (ext_core_lookup_value),
     .ext_core_lookup_valid_i (ext_core_lookup_valid),

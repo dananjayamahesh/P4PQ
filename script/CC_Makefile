@@ -10,7 +10,7 @@ GCC_FLAGS := -Wall -fPIC $(INCDIR_PATH)
 LIB := $(SRC_PATH)/libdpic.so
 
 OBJS += \
-		$(SRC_PATH)/san/Parser1.o \
+		$(SRC_PATH)/san/Parser.o \
                 $(SRC_PATH)/san/extract_prefetcher.o \
 		$(SRC_PATH)/san/load_buffers.o \
 		$(SRC_PATH)/san/load_flag.o \

@@ -327,7 +327,7 @@ module sdn_parser_core
     (
         .ADDR_W                 (PKT_ADDR_W) ,
         .DATA_W                 (PKT_DATA_W) ,      
-        .KEEP_W                 (PKT_KEEP_W)
+        .KEEP_W                 (PKT_KEEP_W) 
     )
     pqsdn_ram_wr_block
     (

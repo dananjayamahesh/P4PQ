@@ -111,7 +111,14 @@ module sdn_parser_extraction_core
     input   [PRS_EXT_BUFF_DATA_W-1:0]                   parser_ext_buff_data_o,
     input   [PRS_EXT_BUFF_ADDR_W-1:0]                   parser_ext_buff_len_o,
 
-        
+//Offset Buffer Partial Output
+    input   [PRS_OFFSET_BUFF_DATA_W-1:0]                parser_offset_buff_data_i,
+    input   [PRS_OFFSET_BUFF_ADDR_W-1:0]                parser_offset_buff_len_i,
+
+    input   [PRS_OFFSET_BUFF_DATA_W-1:0]                parser_offset_buff_data_o,
+    input   [PRS_OFFSET_BUFF_ADDR_W-1:0]                parser_offset_buff_len_o,
+
+ //Lookup value one per header assume       
     input   [PRS_LOOKUP_W-1:0]                          ext_core_lookup_value_i,
     input                                               ext_core_lookup_valid_i,
         
@@ -177,6 +184,7 @@ module sdn_parser_extraction_core
     wire      [HEAD_FIELD_W * NUM_OF_EXT_UNITS-1:0]     ext_unit_field_info;
     wire      [PRS_OFFSET_W * (NUM_OF_EXT_UNITS+1)-1:0] ext_unit_addr_finish;  //
 
+
     //Global Extraction Buffer Formation
     reg       [PRS_FIELD_BUFF_DATA_W-1:0]               parser_field_buff_partial_data;
     reg       [PRS_FIELD_BUFF_DATA_W-1:0]               parser_field_buff_partial_data_out;
@@ -185,7 +193,7 @@ module sdn_parser_extraction_core
 
     wire       [PRS_FIELD_BUFF_DATA_W*(NUM_OF_EXT_UNITS+1)-1:0]                 parser_field_buff_data;
     wire       [PRS_FIELD_BUFF_ADDR_W*(NUM_OF_EXT_UNITS+1)-1:0]                 parser_field_buff_len;
-
+/*
 
     reg       [PRS_EXT_BUFF_DATA_W-1:0]                                         parser_ext_buff_partial_data;
     reg       [PRS_EXT_BUFF_DATA_W-1:0]                                         parser_ext_buff_partial_data_out;
@@ -200,9 +208,10 @@ module sdn_parser_extraction_core
     reg       [PRS_OFFSET_BUFF_ADDR_W-1:0]                                      parser_offset_buff_partial_len_in;
     reg       [PRS_OFFSET_BUFF_ADDR_W-1:0]                                      parser_offset_buff_partial_len_out; 
 
-    wire      [PRS_OFFSET_BUFF_DATA_W*(NUM_OF_EXT_UNITS+1)-1:0]                 parser_offset_buff_data;
-    wire      [PRS_OFFSET_BUFF_ADDR_W*(NUM_OF_EXT_UNITS+1)-1:0]                 parser_offset_buff_len;  
+    //wire      [PRS_OFFSET_BUFF_DATA_W*(NUM_OF_EXT_UNITS+1)-1:0]                 parser_offset_buff_data;
+    //wire      [PRS_OFFSET_BUFF_ADDR_W*(NUM_OF_EXT_UNITS+1)-1:0]                 parser_offset_buff_len;  
       
+*/ //Buffers
 
     wire      [NUM_OF_EXT_UNITS-1:0]                                            ext_unit_hold_en;
     wire      [NUM_OF_EXT_UNITS-1:0]                                            ext_unit_hold_en_out;
@@ -228,17 +237,32 @@ module sdn_parser_extraction_core
 //---------------------------------------------------------------------------------------------------------------------
 // Implementation
 //---------------------------------------------------------------------------------------------------------------------
+
 assign parser_field_buff_data [0 +: PRS_FIELD_BUFF_DATA_W]      =  parser_field_buff_data_i;
 assign parser_field_buff_len  [0 +: PRS_FIELD_BUFF_ADDR_W]      =  parser_field_buff_len_i;
 
+/*
 assign parser_ext_buff_data     [0 +: PRS_EXT_BUFF_DATA_W]      =  parser_ext_buff_data_i;
 assign parser_ext_buff_len      [0 +: PRS_EXT_BUFF_ADDR_W]      =  parser_ext_buff_len_i;
+*/
+
+//assign parser_offset_buff_data  [0 +: PRS_OFFSET_BUFF_DATA_W]   =  parser_offset_buff_data_i;
+//assign parser_offset_buff_len   [0 +: PRS_OFFSET_BUFF_ADDR_W]   =  parser_offset_buff_len_i;
+
+
+
 
 assign parser_field_buff_data_o                                 = parser_field_buff_data [(NUM_OF_EXT_UNITS )* PRS_FIELD_BUFF_DATA_W  +: PRS_FIELD_BUFF_DATA_W];
 assign parser_field_buff_len_o                                  = parser_field_buff_len  [(NUM_OF_EXT_UNITS )* PRS_FIELD_BUFF_ADDR_W +: PRS_FIELD_BUFF_ADDR_W];
+/*
+assign parser_ext_buff_data_o                                   = parser_ext_buff_data   [(NUM_OF_EXT_UNITS )* PRS_EXT_BUFF_DATA_W +: PRS_EXT_BUFF_DATA_W];
+assign parser_ext_buff_len_o                                    = parser_ext_buff_len    [(NUM_OF_EXT_UNITS )* PRS_EXT_BUFF_ADDR_W +: PRS_EXT_BUFF_ADDR_W];
+*/
 
-assign parser_ext_buff_data_o                                   = parser_ext_buff_data   [(NUM_OF_EXT_UNITS )* PRS_FIELD_BUFF_DATA_W +: PRS_EXT_BUFF_DATA_W];
-assign parser_ext_buff_len_o                                    = parser_ext_buff_len    [(NUM_OF_EXT_UNITS )* PRS_FIELD_BUFF_ADDR_W +: PRS_EXT_BUFF_ADDR_W];
+
+
+//assign parser_offset_buff_data_o                                = parser_offset_buff_data   [(NUM_OF_EXT_UNITS )* PRS_OFFSET_BUFF_DATA_W +: PRS_OFFSET_BUFF_DATA_W];
+//assign parser_offset_buff_len_o                                 = parser_offset_buff_len    [(NUM_OF_EXT_UNITS )* PRS_OFFSET_BUFF_ADDR_W +: PRS_OFFSET_BUFF_ADDR_W];
 ////
 assign ext_unit_data                                            = ext_core_data_word_i;
 //ext_core_data_enable_i,
@@ -358,21 +382,26 @@ genvar ext_unit;
 
                     .ext_unit_ext_finished_o        (ext_unit_ext_finished [ext_unit]),
 
-                    .parser_field_buff_data_i           (parser_field_buff_data_i),
-                    .parser_field_buff_len_i            (parser_field_buff_len_i),
-                    .parser_field_buff_data_o           (parser_field_buff_data_o),
-                    .parser_field_buff_len_o            (parser_field_buff_len_o),
-                    .parser_ext_buff_data_i             (parser_ext_buff_data_i),
-                    .parser_ext_buff_len_i              (parser_ext_buff_len_i),
-                    .parser_ext_buff_data_o             (parser_ext_buff_data_o),
-                    .parser_ext_buff_len_o              (parser_ext_buff_len_o)
+                    .parser_field_buff_data_i       (parser_field_buff_data[ext_unit * PRS_FIELD_BUFF_DATA_W +: PRS_FIELD_BUFF_DATA_W]),
+                    .parser_field_buff_len_i        (parser_field_buff_len[ext_unit * PRS_FIELD_BUFF_ADDR_W +: PRS_FIELD_BUFF_ADDR_W]),
+                    .parser_field_buff_data_o       (parser_field_buff_data[(ext_unit+1) * PRS_FIELD_BUFF_DATA_W +: PRS_FIELD_BUFF_DATA_W]),
+                    .parser_field_buff_len_o        (parser_field_buff_len[(ext_unit+1) * PRS_FIELD_BUFF_ADDR_W +: PRS_FIELD_BUFF_ADDR_W]) //,
+
+                    /*
+                    .parser_ext_buff_data_i         (parser_ext_buff_data[ext_unit * PRS_EXT_BUFF_DATA_W +: PRS_EXT_BUFF_DATA_W]),
+                    .parser_ext_buff_len_i          (parser_ext_buff_len[ext_unit * PRS_EXT_BUFF_ADDR_W +: PRS_EXT_BUFF_ADDR_W]),
+                    .parser_ext_buff_data_o         (parser_ext_buff_data[(ext_unit+1) * PRS_EXT_BUFF_DATA_W +: PRS_EXT_BUFF_DATA_W]),
+                    .parser_ext_buff_len_o          (parser_ext_buff_len[(ext_unit+1) * PRS_EXT_BUFF_ADDR_W +: PRS_EXT_BUFF_ADDR_W])//,
+
+                    //.parser_offset_buff_data_i      (parser_offset_buff_data[ext_unit * PRS_OFFSET_BUFF_DATA_W +: PRS_OFFSET_BUFF_DATA_W]),
+                    //.parser_offset_buff_len_i       (parser_offset_buff_len[ext_unit * PRS_OFFSET_BUFF_ADDR_W +: PRS_OFFSET_BUFF_ADDR_W]),
+                    //.parser_offset_buff_data_o      (parser_offset_buff_data[(ext_unit+1) * PRS_OFFSET_BUFF_DATA_W +: PRS_OFFSET_BUFF_DATA_W]),
+                    //.parser_offset_buff_len_o       (parser_offset_buff_len_o[(ext_unit+1) * PRS_OFFSET_BUFF_ADDR_W +: PRS_OFFSET_BUFF_ADDR_W])
+                 */
                 );    
          
         end
 
-    endgenerate   
-
-
-
+    endgenerate
 
 endmodule
