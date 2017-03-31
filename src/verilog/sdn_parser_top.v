@@ -60,10 +60,10 @@ module sdn_parser_top
     parameter           PRS_TPL_DATA_W          = 512,
     parameter           PRS_TPL_KEEP_W          = PRS_TPL_DATA_W / 8,
 
-    parameter           PRS_FIELD_BUFF_DATA_W   = 4096,
+    parameter           PRS_FIELD_BUFF_DATA_W   = 512,//4096,
     parameter           PRS_FIELD_BUFF_ADDR_W   = 12,
 
-    parameter           PRS_EXT_BUFF_DATA_W     = 4096,
+    parameter           PRS_EXT_BUFF_DATA_W     = 512, //4096,
     parameter           PRS_EXT_BUFF_ADDR_W     = 12,
 
     parameter           PRS_HEAD_ADDR_W         = 5,

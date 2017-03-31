@@ -184,7 +184,6 @@ module sdn_parser_extraction_core
     wire      [HEAD_FIELD_W * NUM_OF_EXT_UNITS-1:0]     ext_unit_field_info;
     wire      [PRS_OFFSET_W * (NUM_OF_EXT_UNITS+1)-1:0] ext_unit_addr_finish;  //
 
-
     //Global Extraction Buffer Formation
     reg       [PRS_FIELD_BUFF_DATA_W-1:0]               parser_field_buff_partial_data;
     reg       [PRS_FIELD_BUFF_DATA_W-1:0]               parser_field_buff_partial_data_out;
