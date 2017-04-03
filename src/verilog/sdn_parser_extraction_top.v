@@ -277,9 +277,9 @@ assign                                      ext_core_action_length  = action_ram
 assign                                      parsed                  = (ext_core_head_finished_out)? ((ext_core_lookup_valid_out)? 1'b1: 1'b0) :1'b0;
 
 ////Conrol Pipeline Stages - Split Operations
-assign ext_core_pipe_split_en       = (NUM_OF_EXT_UNITS == NUM_OF_ACT_FIELDS) ? 1'b0 : ( (NUM_OF_EXT_UNITS <= NUM_OF_ACT_FIELDS)? 1'b1 : 1'b0);
+assign ext_core_pipe_split_en                                       = (NUM_OF_EXT_UNITS == NUM_OF_ACT_FIELDS) ? 1'b0 : ( (NUM_OF_EXT_UNITS <= NUM_OF_ACT_FIELDS)? 1'b1 : 1'b0);
 
-assign ext_core_pipe_split_threshold    = NUM_OF_ACT_FIELDS / NUM_OF_EXT_UNITS;
+assign ext_core_pipe_split_threshold                                = NUM_OF_ACT_FIELDS / NUM_OF_EXT_UNITS;
                  
 
 always@ (posedge clk)begin

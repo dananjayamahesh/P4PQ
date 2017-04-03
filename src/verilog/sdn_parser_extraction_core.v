@@ -190,8 +190,8 @@ module sdn_parser_extraction_core
     reg       [PRS_FIELD_BUFF_ADDR_W-1:0]               parser_field_buff_partial_len_in;
     reg       [PRS_FIELD_BUFF_ADDR_W-1:0]               parser_field_buff_partial_len_out; 
 
-    wire       [PRS_FIELD_BUFF_DATA_W*(NUM_OF_EXT_UNITS+1)-1:0]                 parser_field_buff_data;
-    wire       [PRS_FIELD_BUFF_ADDR_W*(NUM_OF_EXT_UNITS+1)-1:0]                 parser_field_buff_len;
+    wire       [PRS_FIELD_BUFF_DATA_W*(NUM_OF_EXT_UNITS+1)-1:0]                 parser_field_buff_data; // Store The Whole Packet Header
+    wire       [PRS_FIELD_BUFF_ADDR_W*(NUM_OF_EXT_UNITS+1)-1:0]                 parser_field_buff_len; // Length of the packet header
 /*
 
     reg       [PRS_EXT_BUFF_DATA_W-1:0]                                         parser_ext_buff_partial_data;
