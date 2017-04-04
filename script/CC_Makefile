@@ -4,7 +4,7 @@ PWD := $(shell pwd)
 SRC_PATH := $(PWD)/../sim
 
 #have to edit the path of the questa sim
-INCDIR_PATH := -I$(SRC_PATH)/header/ -I/home/mahesh/tools/mentor/questa/questa_sim/include
+INCDIR_PATH := -I$(SRC_PATH)/header/ -I/opt/questa/questa_sim/include
 GCC := g++
 GCC_FLAGS := -Wall -fPIC $(INCDIR_PATH)
 LIB := $(SRC_PATH)/libdpic.so

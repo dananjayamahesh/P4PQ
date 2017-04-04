@@ -53,7 +53,6 @@ module sdn_parser_extraction_core
     parameter           ACTION_RAM_DATA_W       = 512,
     parameter           ACTION_RAM_ADDR_W       = 10,
 
-
     parameter           PRS_FIELD_BUFF_DATA_W   = 4096,
     parameter           PRS_FIELD_BUFF_ADDR_W   = 12,
 
@@ -190,8 +189,11 @@ module sdn_parser_extraction_core
     reg       [PRS_FIELD_BUFF_ADDR_W-1:0]               parser_field_buff_partial_len_in;
     reg       [PRS_FIELD_BUFF_ADDR_W-1:0]               parser_field_buff_partial_len_out; 
 
-    wire       [PRS_FIELD_BUFF_DATA_W*(NUM_OF_EXT_UNITS+1)-1:0]                 parser_field_buff_data; // Store The Whole Packet Header
-    wire       [PRS_FIELD_BUFF_ADDR_W*(NUM_OF_EXT_UNITS+1)-1:0]                 parser_field_buff_len; // Length of the packet header
+    reg       [PRS_FIELD_BUFF_DATA_W-1:0]                 parser_field_buff_data_reg = 0; // register to Stack the Field Buffer data at a single parsing stage
+    reg       [PRS_OFFSET_BUFF_DATA_W-1:0]                parser_offset_buff_data_reg = 0; 
+
+    //wire       [PRS_FIELD_BUFF_DATA_W*(NUM_OF_EXT_UNITS+1)-1:0]                 parser_field_buff_data; // Store The Whole Packet Header
+    //wire       [PRS_FIELD_BUFF_ADDR_W*(NUM_OF_EXT_UNITS+1)-1:0]                 parser_field_buff_len; // Length of the packet header
 /*
 
     reg       [PRS_EXT_BUFF_DATA_W-1:0]                                         parser_ext_buff_partial_data;
@@ -237,8 +239,8 @@ module sdn_parser_extraction_core
 // Implementation
 //---------------------------------------------------------------------------------------------------------------------
 
-assign parser_field_buff_data [0 +: PRS_FIELD_BUFF_DATA_W]      =  parser_field_buff_data_i;
-assign parser_field_buff_len  [0 +: PRS_FIELD_BUFF_ADDR_W]      =  parser_field_buff_len_i;
+//assign parser_field_buff_data [0 +: PRS_FIELD_BUFF_DATA_W]      =  parser_field_buff_data_i;
+//assign parser_field_buff_len  [0 +: PRS_FIELD_BUFF_ADDR_W]      =  parser_field_buff_len_i;
 
 /*
 assign parser_ext_buff_data     [0 +: PRS_EXT_BUFF_DATA_W]      =  parser_ext_buff_data_i;
@@ -251,8 +253,8 @@ assign parser_ext_buff_len      [0 +: PRS_EXT_BUFF_ADDR_W]      =  parser_ext_bu
 
 
 
-assign parser_field_buff_data_o                                 = parser_field_buff_data [(NUM_OF_EXT_UNITS )* PRS_FIELD_BUFF_DATA_W  +: PRS_FIELD_BUFF_DATA_W];
-assign parser_field_buff_len_o                                  = parser_field_buff_len  [(NUM_OF_EXT_UNITS )* PRS_FIELD_BUFF_ADDR_W +: PRS_FIELD_BUFF_ADDR_W];
+//assign parser_field_buff_data_o                                 = parser_field_buff_data [(NUM_OF_EXT_UNITS )* PRS_FIELD_BUFF_DATA_W  +: PRS_FIELD_BUFF_DATA_W];
+//assign parser_field_buff_len_o                                  = parser_field_buff_len  [(NUM_OF_EXT_UNITS )* PRS_FIELD_BUFF_ADDR_W +: PRS_FIELD_BUFF_ADDR_W];
 /*
 assign parser_ext_buff_data_o                                   = parser_ext_buff_data   [(NUM_OF_EXT_UNITS )* PRS_EXT_BUFF_DATA_W +: PRS_EXT_BUFF_DATA_W];
 assign parser_ext_buff_len_o                                    = parser_ext_buff_len    [(NUM_OF_EXT_UNITS )* PRS_EXT_BUFF_ADDR_W +: PRS_EXT_BUFF_ADDR_W];
@@ -364,8 +366,7 @@ genvar ext_unit;
                     .ext_unit_field_offset_o        (ext_unit_field_offset  [ext_unit * PRS_OFFSET_W +:  PRS_OFFSET_W] ),
                     .ext_unit_field_data_o          (ext_unit_field_data [ext_unit * PRS_DATA_W +: PRS_DATA_W]),
                     .ext_unit_field_len_o           (ext_unit_field_len [ext_unit * PRS_LENGTH_W +: PRS_LENGTH_W]),
-                    .ext_unit_field_data_valid_o    (ext_unit_field_data_valid[0]),
-
+                    .ext_unit_field_data_valid_o    (ext_unit_field_data_valid[ext_unit]),
 
                     .ext_unit_dylen_en_o            (ext_unit_dylen_en [ext_unit + 1]),
                     .ext_unit_dylen_o               (ext_unit_dylen [(ext_unit+1) * PRS_LENGTH_W +: PRS_LENGTH_W]),
@@ -379,12 +380,13 @@ genvar ext_unit;
                     .ext_unit_lookup_en_i           (ext_unit_lookup_en [ext_unit]),
                     .ext_unit_lookup_i              (ext_unit_lookup [ext_unit * PRS_LOOKUP_W +: PRS_LOOKUP_W]),
 
-                    .ext_unit_ext_finished_o        (ext_unit_ext_finished [ext_unit]),
+                    .ext_unit_ext_finished_o        (ext_unit_ext_finished [ext_unit])   /*,
 
                     .parser_field_buff_data_i       (parser_field_buff_data[ext_unit * PRS_FIELD_BUFF_DATA_W +: PRS_FIELD_BUFF_DATA_W]),
                     .parser_field_buff_len_i        (parser_field_buff_len[ext_unit * PRS_FIELD_BUFF_ADDR_W +: PRS_FIELD_BUFF_ADDR_W]),
                     .parser_field_buff_data_o       (parser_field_buff_data[(ext_unit+1) * PRS_FIELD_BUFF_DATA_W +: PRS_FIELD_BUFF_DATA_W]),
-                    .parser_field_buff_len_o        (parser_field_buff_len[(ext_unit+1) * PRS_FIELD_BUFF_ADDR_W +: PRS_FIELD_BUFF_ADDR_W]) //,
+                    .parser_field_buff_len_o        (parser_field_buff_len[(ext_unit+1) * PRS_FIELD_BUFF_ADDR_W +: PRS_FIELD_BUFF_ADDR_W]),
+                    */
 
                     /*
                     .parser_ext_buff_data_i         (parser_ext_buff_data[ext_unit * PRS_EXT_BUFF_DATA_W +: PRS_EXT_BUFF_DATA_W]),
@@ -397,10 +399,22 @@ genvar ext_unit;
                     //.parser_offset_buff_data_o      (parser_offset_buff_data[(ext_unit+1) * PRS_OFFSET_BUFF_DATA_W +: PRS_OFFSET_BUFF_DATA_W]),
                     //.parser_offset_buff_len_o       (parser_offset_buff_len_o[(ext_unit+1) * PRS_OFFSET_BUFF_ADDR_W +: PRS_OFFSET_BUFF_ADDR_W])
                  */
-                );    
-         
+                );        
         end
+    endgenerate
 
+genvar j;
+    generate 
+        for (j = 0; j < NUM_OF_EXT_UNITS ; j = j + 1) begin
+            always@(posedge clk)begin
+                if(ext_core_head_finished_o)begin
+                  //parser_field_buff_data_reg[0 +: (ext_unit_field_len [j * PRS_LENGTH_W +: PRS_LENGTH_W]) ] <= ext_unit_field_data [j * PRS_DATA_W +: PRS_DATA_W] ;
+                  //(ext_unit_field_offset [j * PRS_OFFSET_W +: PRS_OFFSET_W])
+                   parser_field_buff_data_reg[j] <= 1'b1;
+
+                end
+            end
+        end
     endgenerate
 
 endmodule
