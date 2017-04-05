@@ -56,7 +56,7 @@ svReadPkts(
 
         //gtp_decoder = new Pq_Hw_GTPDecoder();
 
-        i_ret = pkt_reader->open_file("dialog2.pcap"); //name of the pcap file
+        i_ret = pkt_reader->open_file("../sim/san/packetdumps/ICMP_across_dot1q.cap"); //name of the pcap file
         if (i_ret != SUCCESS) {
             *svError = 1;
             return;
