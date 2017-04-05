@@ -400,7 +400,11 @@ always@ (posedge clk)begin
 
                             pkt_buf_rd_addr_o           <= pkt_buf_rd_addr_o + 1;
                             state_prs_ext_core          <= STATE_EXT_READ;
-                            
+
+                            //Stack into Field buffer
+                             
+                            parser_field_buff_data [pkt_data_count*PRS_DATA_W +: PRS_DATA_W] <= pkt_buf_rd_data_i;
+
                             //Buffer Prvious One into Fielfd Buffer
                             //Push to Field Buffer                           
                      
@@ -532,6 +536,8 @@ always@ (posedge clk)begin
                     pkt_data_count              <= pkt_data_count + 1;  
                     ext_core_data_count         <= ext_core_data_count + 1;
                     ext_core_data_word          <= pkt_buf_rd_data_i;
+
+                    //Organize into Field Buffer
                     ext_core_data_valid         <= 1'b1;
                     state_prs_ext_core          <= STATE_EXT_PKT;
             end

@@ -189,8 +189,9 @@ module sdn_parser_extraction_core
     reg       [PRS_FIELD_BUFF_ADDR_W-1:0]               parser_field_buff_partial_len_in;
     reg       [PRS_FIELD_BUFF_ADDR_W-1:0]               parser_field_buff_partial_len_out; 
 
-    reg       [PRS_FIELD_BUFF_DATA_W-1:0]                 parser_field_buff_data_reg = 0; // register to Stack the Field Buffer data at a single parsing stage
-    reg       [PRS_OFFSET_BUFF_DATA_W-1:0]                parser_offset_buff_data_reg = 0; 
+    reg       [PRS_FIELD_BUFF_DATA_W-1:0]               parser_field_buff_data_reg  = 0; // register to Stack the Field Buffer data at a single parsing stage
+    reg       [PRS_OFFSET_BUFF_DATA_W-1:0]              parser_offset_buff_data_reg = 0; 
+    reg       [PRS_EXT_BUFF_DATA_W-1:0]                 parser_ext_buff_data_reg    = 0;
 
     //wire       [PRS_FIELD_BUFF_DATA_W*(NUM_OF_EXT_UNITS+1)-1:0]                 parser_field_buff_data; // Store The Whole Packet Header
     //wire       [PRS_FIELD_BUFF_ADDR_W*(NUM_OF_EXT_UNITS+1)-1:0]                 parser_field_buff_len; // Length of the packet header
@@ -404,17 +405,29 @@ genvar ext_unit;
     endgenerate
 
 genvar j;
-    generate 
-        for (j = 0; j < NUM_OF_EXT_UNITS ; j = j + 1) begin
-            always@(posedge clk)begin
-                if(ext_core_head_finished_o)begin
+        //for (j = 0; j < NUM_OF_EXT_UNITS ; j = j + 1) begin       
+
+        generate
+            
+             for (j = 0; j < NUM_OF_EXT_UNITS ; j = j + 1) begin
+                
+                always@(posedge clk)begin
+
+                   if(ext_core_head_finished_o)begin
                   //parser_field_buff_data_reg[0 +: (ext_unit_field_len [j * PRS_LENGTH_W +: PRS_LENGTH_W]) ] <= ext_unit_field_data [j * PRS_DATA_W +: PRS_DATA_W] ;
                   //(ext_unit_field_offset [j * PRS_OFFSET_W +: PRS_OFFSET_W])
-                   parser_field_buff_data_reg[j] <= 1'b1;
+                   parser_field_buff_data_reg[j]    <= 1'b1;
+                   parser_ext_buff_data_reg [j]     <= 1'b1;
+                   parser_offset_buff_data_reg [j]  <= 1'b1;
+                  // parser_offset_buff_data_reg 
+                  
+                 //  parser_field_buff_data_reg[0 +: (ext_unit_field_len [j * PRS_LENGTH_W +: PRS_LENGTH_W]) ] <= ext_unit_field_data [j * PRS_DATA_W +: PRS_DATA_W] ;
 
-                end
+                   end
+                end          
             end
-        end
-    endgenerate
+        endgenerate
+        //end
+    
 
 endmodule
