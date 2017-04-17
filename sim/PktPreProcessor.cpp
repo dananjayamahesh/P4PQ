@@ -19,6 +19,7 @@ int PktPreProcessor::ConvertPkt(rd_pkt rp, packet &pkt)
     if (header->len != header->caplen) {
     	snprintf(z_buf, sizeof(z_buf), "Error:[RepToolHw::PushNetPkt]:packet len = %d and captured len = %d mismatch", (int)header->len, (int)header->caplen);
     	PrintLog(z_buf);
+       std::cout << "CONV LEN" << ((int)header->len) <<  "CAPLEN" << ((int)header->caplen) << std::endl; 
         return FAILURE;
     }
 

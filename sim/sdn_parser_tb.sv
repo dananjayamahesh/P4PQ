@@ -215,19 +215,20 @@ module sdn_parser_tb;
 
         //c++ model
             parse();
+        #1000;
         //fork
             program_cam();
         //join
-
+         #1000;
         //fork
             program_core();
-        //join                
-            #1000;
-             programming       = 1'b0;
-        //fork
-            load_packets();
         //join
-
+         $display("A");
+             programming       = 1'b0;
+             $display("B");
+       
+            load_packets();
+        
         #15000;
         $finish;
     end
@@ -276,6 +277,7 @@ module sdn_parser_tb;
                     camconf_ram_wren = 0;
             end 
 
+            $display("END PROG CAM");
 
     endtask : program_cam
 
@@ -332,15 +334,10 @@ module sdn_parser_tb;
                     actconf_ram_en = 0;
                     actconf_ram_wren = 0;
             end            
-        end  
-               /* @(posedge clk) begin
-                programming = 1'b0; 
-                end
-                */ 
+        end
 
-
-    endtask : program_core    
-    
+         $display("END PROG CORE ACTIOn RAM");
+    endtask : program_core   
 
     // ------------------------------------------------------------------------
     // Load the packets to ram
@@ -357,10 +354,14 @@ module sdn_parser_tb;
         automatic int unsigned len_64bit_rem;
         
         //////////////////////////////////////////////////////////////////////////
-
+        $display("C");
         svReadPkts(MAX_PKT_HOLD, error);      
+        $display("D");
+         //$display("D %d", error);
                                       //1.read packet
+
         $display("********************************FIRST TIME");
+
         if (error != 0) begin
             $display("Error at svReadPkts : %2d", error);
             $finish;
