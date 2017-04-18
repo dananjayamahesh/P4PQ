@@ -57,6 +57,7 @@ svReadPkts(
         //gtp_decoder = new Pq_Hw_GTPDecoder();
         std::cout << "E" << std::endl; 
         i_ret = pkt_reader->open_file("/home/dhananjaya/san/repos/P4PQ/work/dialog2.pcap"); //name of the pcap file
+       
         std::cout << "F" << std::endl; 
         if (i_ret != SUCCESS) {
             *svError = 1;
@@ -66,9 +67,9 @@ svReadPkts(
         else {
 
             rd_pcap_file = true;
-            std::cout << "SUCCESS1" << std::endl; 
+            std::cout << "SUCCESS" << std::endl; 
             *svError = 0;
-            std::cout << "SUCCESS2" << std::endl; 
+          
         }
         std::cout << "G" << std::endl; 
     }
@@ -79,14 +80,18 @@ svReadPkts(
         std::cout << "COUNT " << i << std::endl; 
         pkt_reader->GetNextPacket(rp);       
         std::cout << "FIN " << i << std::endl;            //read the next packet in the pcap file
+        std::cout << "SVCount " << svCount << std::endl;   
+        std::cout << "NextPKT " << rp.header->len << std::endl;   
+
+
         i_ret = pkt_preprocessor->ConvertPkt(rp, p);    //convert according to we needed(as hardwear), and packet is stored in the vector packet
         
-        if (i_ret != SUCCESS) {
+       if (i_ret != SUCCESS) {
             *svError = 1;
             std::cout << "I "<< std::endl; 
             return;
         }
-        std::cout << "J " << i << std::endl; 
+        std::cout << "Mahesh " << i << std::endl; 
 
         //gtp_decoder->proce_frame(p, gtpdecoder);
         //gtp_decoder_resultq.push(gtpdecoder);
@@ -95,7 +100,7 @@ svReadPkts(
         //gtp_decoder->AddHdr(p);
         
         rdpkt_count++; 
-     std::cout << "Packet Count :" <<rdpkt_count << std::endl;                        //pkt_id = count of the   packet (number)
+       std::cout << "Packet Count :" <<rdpkt_count << std::endl;                        //pkt_id = count of the   packet (number)
         pktq.push(p);                                       //push the vector packet into the queue
     }
 }
