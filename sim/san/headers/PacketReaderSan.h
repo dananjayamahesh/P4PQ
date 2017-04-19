@@ -28,6 +28,7 @@ public:
     PacketReaderSan();
     ~PacketReaderSan();
     int open_file(const char* filename);
+    void close_file();
     int GetNextPacket(rd_pktSan& pkt);
 };
 

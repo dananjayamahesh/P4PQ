@@ -56,8 +56,9 @@ svReadPkts(
 
         //gtp_decoder = new Pq_Hw_GTPDecoder();
         std::cout << "E" << std::endl; 
-        i_ret = pkt_reader->open_file("/home/dhananjaya/san/repos/P4PQ/work/dialog2.pcap"); //name of the pcap file
-       
+        //i_ret = pkt_reader->open_file("/home/dhananjaya/san/repos/P4PQ/work/dialog2.pcap"); //name of the pcap file
+        i_ret = pkt_reader->open_file("/home/dhananjaya/paraqum/dumps/tcp_udp_for_ofdpl.pcap");//name of the pcap file       
+
         std::cout << "F" << std::endl; 
         if (i_ret != SUCCESS) {
             *svError = 1;
@@ -89,7 +90,7 @@ svReadPkts(
        if (i_ret != SUCCESS) {
             *svError = 1;
             std::cout << "I "<< std::endl; 
-            return;
+          //  return;
         }
         std::cout << "Mahesh " << i << std::endl; 
 
@@ -103,6 +104,9 @@ svReadPkts(
        std::cout << "Packet Count :" <<rdpkt_count << std::endl;                        //pkt_id = count of the   packet (number)
         pktq.push(p);                                       //push the vector packet into the queue
     }
+
+  pkt_reader -> close_file();
+  std::cout << "Packet Reader Closed" << std::endl; 
 }
 
 DPI_LINK_DECL DPI_DLLESPEC

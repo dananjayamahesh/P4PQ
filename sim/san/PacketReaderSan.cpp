@@ -53,3 +53,7 @@ int PacketReaderSan::open_file(const char* filename) {
     }
 }
 
+void PacketReaderSan::close_file(){
+     pcap_close(fp);
+}
+

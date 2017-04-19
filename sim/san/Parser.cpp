@@ -194,7 +194,7 @@ void Parser::run(){
     	load_hdr_seq(&hdr_seq_buffer, &header_queue);		//Add to header sequence queue
 	}
 //----------end of packet---------------------------------------------------------------------------------------------------------------------------------------
-
+     pkt_reader -> close_file(); // Added By Mahesh to Close the PCAP file
 }
 
 uint64_t Parser::get_field_buffer_word(

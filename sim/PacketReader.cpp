@@ -49,3 +49,7 @@ int PacketReader::open_file(const char* filename) {
     }
 }
 
+void PacketReader::close_file(){
+     pcap_close(fp);
+}
+

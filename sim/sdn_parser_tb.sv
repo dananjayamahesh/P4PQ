@@ -355,7 +355,7 @@ module sdn_parser_tb;
         
         //////////////////////////////////////////////////////////////////////////
         $display("C");
-        svReadPkts(MAX_PKT_HOLD, error);      
+        svReadPkts(MAX_PKT_HOLD, error); 
         $display("D");
          //$display("D %d", error);
                                       //1.read packet
