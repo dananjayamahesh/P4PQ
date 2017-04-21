@@ -1,6 +1,12 @@
 
 #include "header/PacketReader.h"
 #include <pcap.h>
+#include <queue>
+
+#include <stdlib.h> 
+#include <stdio.h>
+#include <iostream>
+#include <fstream>
 
 void dispatcher_handler(u_char* pcap_pkt, const struct pcap_pkthdr* header, const u_char* pkt_data) {
 	rd_pkt *rpkt = (rd_pkt*) pcap_pkt;
@@ -11,7 +17,6 @@ void dispatcher_handler(u_char* pcap_pkt, const struct pcap_pkthdr* header, cons
 PacketReader::PacketReader() {
 	fp = NULL;
 }
-
 
 PacketReader::~PacketReader() {
 }
@@ -29,14 +34,21 @@ int PacketReader::GetNextPacket(rd_pkt& pkt) {
 int PacketReader::open_file(const char* filename) {
     char errbuf[PCAP_ERRBUF_SIZE];
 
+  std::cout << filename << std::endl; 
     fp = pcap_open_offline(filename, errbuf);
     if(fp == NULL)
     {
+         std::cout << "ReadFail" << std::endl; 
         return FAILURE;
     }
     else
     {
+        std::cout << "ReadSuccess" << std::endl; 
         return SUCCESS;
     }
+}
+
+void PacketReader::close_file(){
+     pcap_close(fp);
 }
 

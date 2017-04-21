@@ -104,7 +104,7 @@ int CamConfProg::ExtractLength() {
 int CamConfProg::ReadFile() {
 
  	std::ifstream myReadFile;
- 	myReadFile.open("/home/mahesh/paraqum/repos/sdn_parser_complete/camconf.txt");
+ 	myReadFile.open("/home/dhananjaya/san/repos/P4PQ/camconf.txt");
  	char output[256];
  	if (myReadFile.is_open()) {
  		while (!myReadFile.eof()) {

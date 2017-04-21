@@ -253,7 +253,7 @@ wire    [31:0]                              ext_core_pipe_split_threshold;
 reg     [31:0]                              ext_core_pipe_split_count = 0;
 
 //Field Buffer Operations
-reg     [PRS_FIELD_BUFF_DATA_W-1:0]         parser_field_buff_data  = 0;
+reg     [PRS_FIELD_BUFF_DATA_W-1:0]         parser_field_buff_data  = 0; 
 reg     [PRS_FIELD_BUFF_ADDR_W-1:0]         parser_field_buff_len   = 0;
 reg                                         parser_field_buff_valid = 0;
 
@@ -399,10 +399,8 @@ always@ (posedge clk)begin
                             pkt_buf_rd_addr_o           <= pkt_buf_rd_addr_o + 1;
                             state_prs_ext_core          <= STATE_EXT_READ;
 
-                            //Stack into Field buffer
-                             
+                            //Stack into Field buffer                             
                             parser_field_buff_data [pkt_data_count*PRS_DATA_W +: PRS_DATA_W] <= pkt_buf_rd_data_i;
-
                             //Buffer Prvious One into Fielfd Buffer
                             //Push to Field Buffer                           
                      
@@ -421,12 +419,11 @@ always@ (posedge clk)begin
                     else begin
 
                         //Pipeline Split
-
-                            if(ext_core_head_finished_out)begin //Finihsed one Head , Not real, virtual
+                            if(ext_core_head_finished_out)begin //Finishsed one Head , Not real, virtual
 
                                 if(ext_core_pipe_split_count < ext_core_pipe_split_threshold)  begin //Check for Actual Header 
                                                   
-                                    ext_core_pipe_split_count   <= ext_core_pipe_split_count +1 ;
+                                    ext_core_pipe_split_count   <= ext_core_pipe_split_count + 1;
 
                                     ext_core_lookup_value       <= ext_core_lookup_value_out;
                                     ext_core_lookup_valid       <= ext_core_lookup_valid_out;
@@ -443,8 +440,8 @@ always@ (posedge clk)begin
                                     parser_ext_buff_data_in     <= parser_ext_buff_data_out;
                                     parser_ext_buff_len_in      <= parser_ext_buff_len_out;
 
-                                    parser_offset_buff_data_in     <= parser_offset_buff_data_out;
-                                    parser_offset_buff_len_in      <= parser_offset_buff_len_out;
+                                    parser_offset_buff_data_in  <= parser_offset_buff_data_out;
+                                    parser_offset_buff_len_in   <= parser_offset_buff_len_out;
 
                                     /*
                                     head_lookup_buf         <= ext_core_lookup_value_out;

@@ -15,7 +15,7 @@ void Parser::run(){
     pkt_reader 													= 	new PacketReaderSan();
     pkt_preprocessor 											= 	new PktPreProcessorSan();
 
-    i_ret 		= pkt_reader->open_file("../sim/san/packetdumps/ICMP_across_dot1q.cap"); 	//name of the pcap file
+    i_ret 		= pkt_reader->open_file("dialog2.pcap"); 	//name of the pcap file
     if (i_ret != SUCCESS) {
         //cout << "failed to open pcap file" << endl;
     }else {
@@ -194,7 +194,7 @@ void Parser::run(){
     	load_hdr_seq(&hdr_seq_buffer, &header_queue);		//Add to header sequence queue
 	}
 //----------end of packet---------------------------------------------------------------------------------------------------------------------------------------
-
+     pkt_reader -> close_file(); // Added By Mahesh to Close the PCAP file
 }
 
 uint64_t Parser::get_field_buffer_word(

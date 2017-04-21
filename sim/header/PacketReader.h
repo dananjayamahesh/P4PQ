@@ -29,6 +29,7 @@ public:
     PacketReader();
     ~PacketReader();
     int open_file(const char* filename);
+    void close_file();
     int GetNextPacket(rd_pkt& pkt);
 };
 

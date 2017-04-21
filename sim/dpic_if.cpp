@@ -55,28 +55,44 @@ svReadPkts(
         pkt_preprocessor = new PktPreProcessor();
 
         //gtp_decoder = new Pq_Hw_GTPDecoder();
+        std::cout << "E" << std::endl; 
+        //i_ret = pkt_reader->open_file("/home/dhananjaya/san/repos/P4PQ/work/dialog2.pcap"); //name of the pcap file
+        i_ret = pkt_reader->open_file("dialog2.pcap");//name of the pcap file       
 
-        i_ret = pkt_reader->open_file("../sim/san/packetdumps/ICMP_across_dot1q.cap"); //name of the pcap file
+        std::cout << "F" << std::endl; 
         if (i_ret != SUCCESS) {
             *svError = 1;
+            std::cout << "FAILURE" << std::endl; 
             return;
         }
         else {
-            rd_pcap_file = true;
-            *svError = 0;
-        }
-    }
 
+            rd_pcap_file = true;
+            std::cout << "SUCCESS" << std::endl; 
+            *svError = 0;
+          
+        }
+        std::cout << "G" << std::endl; 
+    }
+    std::cout << "H" << std::endl; 
     for (uint i = 0; i < (uint) svCount; i++) {
         rd_pkt rp;                                      //struct PacketReader.h
         packet p;                                       //struct NetworkPkts.h ,vector
-        
-        pkt_reader->GetNextPacket(rp);                  //read the next packet in the pcap file
+        std::cout << "COUNT " << i << std::endl; 
+        pkt_reader->GetNextPacket(rp);       
+        std::cout << "FIN " << i << std::endl;            //read the next packet in the pcap file
+        std::cout << "SVCount " << svCount << std::endl;   
+        std::cout << "NextPKT " << rp.header->len << std::endl;   
+
+
         i_ret = pkt_preprocessor->ConvertPkt(rp, p);    //convert according to we needed(as hardwear), and packet is stored in the vector packet
-        if (i_ret != SUCCESS) {
+        
+       if (i_ret != SUCCESS) {
             *svError = 1;
-            return;
+            std::cout << "I "<< std::endl; 
+           return;
         }
+        std::cout << "Mahesh " << i << std::endl; 
 
         //gtp_decoder->proce_frame(p, gtpdecoder);
         //gtp_decoder_resultq.push(gtpdecoder);
@@ -84,9 +100,13 @@ svReadPkts(
         ////add modification to the p
         //gtp_decoder->AddHdr(p);
         
-        rdpkt_count++;                                      //pkt_id = count of the packet (number)
+        rdpkt_count++; 
+       std::cout << "Packet Count :" <<rdpkt_count << std::endl;                        //pkt_id = count of the   packet (number)
         pktq.push(p);                                       //push the vector packet into the queue
     }
+
+  pkt_reader -> close_file();
+  std::cout << "Packet Reader Closed" << std::endl; 
 }
 
 DPI_LINK_DECL DPI_DLLESPEC
