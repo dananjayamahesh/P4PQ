@@ -18,7 +18,6 @@ PacketReader::PacketReader() {
 	fp = NULL;
 }
 
-
 PacketReader::~PacketReader() {
 }
 

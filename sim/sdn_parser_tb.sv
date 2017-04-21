@@ -214,7 +214,7 @@ module sdn_parser_tb;
         #(CLK*2);
 
         //c++ model
-            parse();
+           // parse();
         #1000;
         //fork
             program_cam();
