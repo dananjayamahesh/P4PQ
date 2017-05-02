@@ -183,13 +183,11 @@ wire    [PRS_OFFSET_W-1:0]                  ext_core_finish_addr_out;
 wire    [ACTION_RAM_DATA_W-1:0]             ext_core_action_field;
 wire    [ACTION_RAM_LEN_W-1:0]              ext_core_action_length;
 reg                                         ext_core_action_valid;
-
 //Newly Added
 reg     [PRS_FIELD_BUFF_DATA_W-1:0]         parser_field_buff_data_in;
 reg     [PRS_FIELD_BUFF_ADDR_W-1:0]         parser_field_buff_len_in;
 wire    [PRS_FIELD_BUFF_DATA_W-1:0]         parser_field_buff_data_out;
 wire    [PRS_FIELD_BUFF_ADDR_W-1:0]         parser_field_buff_len_out;
-
 //Extraction Buffer Partial Output
 reg     [PRS_EXT_BUFF_DATA_W-1:0]           parser_ext_buff_data_in;
 reg     [PRS_EXT_BUFF_ADDR_W-1:0]           parser_ext_buff_len_in;
