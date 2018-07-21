@@ -404,6 +404,8 @@ genvar ext_unit;
         end
     endgenerate
 
+
+//Generator Block for Offset buffer fill
 genvar j;
         //for (j = 0; j < NUM_OF_EXT_UNITS ; j = j + 1) begin       
 
